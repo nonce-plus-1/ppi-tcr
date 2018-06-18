@@ -1,3 +1,2 @@
-let exampleDate = new Date();
-document.getElementById("remainingBidTime").innerHTML = exampleDate;
-document.getElementById("memeDeadline").innerHTML = exampleDate;
+let getDate = new Date();
+document.getElementById("memeDeadline").innerHTML = getDate;
