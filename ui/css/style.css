@@ -123,12 +123,6 @@ samp {
     font-size: 1em
 }
 
-hr {
-    box-sizing: content-box;
-    height: 0;
-    overflow: visible
-}
-
 button,
 input,
 select,
@@ -222,56 +216,6 @@ textarea {
 }
 
 /* End extract */
-
-html,
-body {
-    font-family: Verdana, sans-serif;
-    font-size: 15px;
-    line-height: 1.5
-}
-
-html {
-    overflow-x: hidden
-}
-
-h1 {
-    font-size: 36px
-}
-
-h2 {
-    font-size: 30px
-}
-
-h3 {
-    font-size: 24px
-}
-
-h4 {
-    font-size: 20px
-}
-
-h5 {
-    font-size: 18px
-}
-
-h6 {
-    font-size: 16px
-}
-
-.w3-serif {
-    font-family: serif
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-weight: 400;
-    margin: 10px 0
-}
 
 .w3-wide {
     letter-spacing: 4px
@@ -1911,30 +1855,128 @@ a {
 
 
 /* ----Custom Added CSS @Tatyanna Cobb---- */
-/* .bidCloseTimeTextSize{
-  font-size: 1.9vmin;
-} */
 body, html {
     height:100%;
     margin:0;
     padding:0;
-}
-article {
-    height:100%;
-    min-height:300px; /* This is the height of your content + height of the footer */
-}
-footer {
-    margin-top:-100px;
-    height:100px;
+    font-family:  'Open Sans', sans-serif;
 }
 
-.overlayBorder{
-    font-size: 3vmin;
+.ppiLogo{
+    max-height: 3.5em;
+    max-width: 3em;
+    float: left;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-right: 1%;
 }
-*,
-html {
-    box-sizing: border-box;
+
+.ppiGreenBkgd{
+    background-color: #144A2E;
+    color: whitesmoke;
 }
-*, *:before, *:after {
-    box-sizing: inherit;
+
+.ppiCTA{
+    background-color: #C9F308;
+    text-shadow: 0 2px 10px #000000;
+    box-shadow: 1px 2px 8px #162F14;
+    font-weight: 500;
+    font-family: "Roboto Slab", serif;
+}
+
+.ppiCTA:hover{
+    color:#162F14;
+    background-color: white !important;
+    border: 2px solid  #C9F308 !important;
+    text-shadow: 0 2px 10px #000000;
+    box-shadow: 1px 2px 8px #162F14;
+    font-weight: 500;
+    font-family: "Roboto Slab", serif;
+    border-radius: 8px;
+    padding: 6px 14px;
+}
+
+header{
+    background-image:
+        radial-gradient(
+        circle,
+        #175A37,
+        #144A2E
+        );
+}
+
+h1{
+    font-family: "Roboto Slab", serif;
+    text-shadow: 0 1px 4px #00000050;
+    padding-left: auto;
+    padding-right: auto;
+    margin-left: auto;
+    margin-right: auto;
+    /* text-align: left; */
+}
+
+h5{
+    font-family: "Roboto Slab", serif;
+}
+
+/* font-family: "Roboto Slab",Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif; */
+
+p{
+    font-family: Verdana, sans-serif;
+    color: #E8E8E8;
+}
+
+.auctionEnd {
+    text-shadow: 0 1px 4px #2f2f2ff9;   
+    margin-top: -1%;
+}
+.countdown{
+    max-width: 40vw;
+    font-size: 3vw;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: rgb(36, 34, 34);
+    padding: .2em;
+    letter-spacing: .1ch;
+    text-shadow: -1px -1px rgb(36, 34, 34);
+}
+
+article{
+    margin-top: .2em;
+}
+
+.memeBits{
+    width: 95%;
+    height: 40%; 
+    
+}
+
+.memePic img{
+    float: right;
+    margin-right: 7%;
+    max-width: 80%;
+    height: auto;
+}
+
+.memeBits p{
+    color: rgb(36, 34, 34);
+    font-size: 2vw;
+}
+
+.memeBits button{
+    background-color: rgb(36, 34, 34);
+    color: white;
+    font-family: "Roboto Slab", serif;
+    font-size: 2.5vw;
+    text-shadow: -1px -1px rgb(36, 34, 34);
+}
+
+
+.memeBits button:hover {
+    color: green !important;
+    background-color: white !important;
+    border: 2px solid  #C9F308 !important;
+    border-radius: 8px;
+    padding: 6px 14px;
 }

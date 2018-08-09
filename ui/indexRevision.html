@@ -6,75 +6,84 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link href="css/style.css" rel="stylesheet" type="text/css">
-    <title>PPI Home</title>
+
+    <link href="http://www.jsdelivr.com/#!particles.js">
+
+    <link href="https://fonts.googleapis.com/css?family=Cantarell|Open+Sans|Oxygen|Roboto+Slab|Ubuntu" rel="stylesheet"> 
+
+    <title>PiedPiperCoin Meme Bid</title>
 </head>
+
 <body>
-    
-    <header>
-        <nav>
-            <div class="w3-bar w3-black">
-                <a href="#" class="w3-hover-none w3-hover-white w3-button w3-left w3-bar-item w3-container">Pp</a>
-                
-                <div class="w3-right">
-                    <a href="#" class="w3-hover-white w3-ripple w3-bar-item w3-button">Top 10 Best/Worst</a>
-                    <a href="#" class="w3-hover-white w3-ripple w3-bar-item w3-button">The Gallery</a>
-                    <a href="#" ><button class="w3-ripple w3-bar-item w3-button w3-yellow w3-hover-yellow w3-hover-text-white">Create Meme</button></a> 
-                </div>
-            </div>
-        </nav>
-    </header>
+<header class="ppiGreenBkgd w3-container">
+    <p>
+        <img src="images/ppi.png" class="ppiLogo">
+    </p>
+    <h1> PIED PIPER COIN</h1>
 
+    <div class="w3-center">
+<!-- TODO: MEME TEXT SLIDES OVER TO THE RIGHT SLIGHTLY UPON ZOOM OUT -->
+        <h1 class="w3-xxxlarge">MEME BID</h1>
+        <p class="w3-xlarge">This week’s Meme Auction Ends on</p>
+        <p class="w3-xlarge auctionEnd"><span id="auctionCountdownEndDate"></span> 9pm EST</p>
+        <div class="w3-round-large w3-text-white countdown">
+            <span id=auctionCountdownDays></span><span class="w3-tiny">D: </span> 
+            <span id=auctionCountdownHours></span><span class="w3-tiny">H: </span> 
+            <span id=auctionCountdownMinutes></span><span class="w3-tiny">M: </span>  
+            <span id=auctionCountdownSeconds></span><span class="w3-tiny">S </span> 
+        </div>
+        <a href="#" class="w3-panel">
+            <button class="w3-button w3-hover-white w3-ripple w3-round-large ppiCTA">Submit Meme</button>
+        </a>
+    </div>        
+</header>
 
-    <article class="w3-panel">
-        <div class="w3-center">
-            <h1>This Week on PPI</h1>
-            <h2>Action Ends in</h2>
-            <div class="w3-dark-gray w3-xxxlarge">
-                <p class="w3-text-white">
-                    <span id=auctionCountdownDays></span><span class="w3-tiny">D: </span> 
-                    <span id=auctionCountdownHours></span><span class="w3-tiny">H: </span> 
-                    <span id=auctionCountdownMinutes></span><span class="w3-tiny">M: </span>  
-                    <span id=auctionCountdownSeconds></span><span class="w3-tiny">S </span> 
-                </p>
-            </div>
-            <h2>On <span id="auctionCountdownEndDate"></span></h2> 
+<article class="w3-panel">
+    <div class="memeBits w3-margin-top w3-row w3-container">
+        <div class="memePic w3-col s9 m9 l9">
+            <img src="images/bitdoge.jpg" class="w3-border w3-padding">
         </div>
         
-        <section>
-            <div class="w3-container">
-        <!-- Example 1 -->
-                <div class="w3-border w3-center" style="width: 40%;">
-                    <img src="images/bitdoge.jpg" class="w3-image">
-                    <div class="w3-card w3-light-grey"><span class="overlayBorder">Current PPI: 10
-                        <br>
-                        Address/ox7475783Ed7 <br></span>
-                        <button class="w3-button w3-light-green w3-text-white w3-ripple">Bid <span id="increasedBidPrice">11</span> PPI</button>
-                    </div>
-                </div>  
+        <div class="memeText w3-col s2 m2 l2">
+            <button class="w3-button w3-round-large w3-ripple">Bid <span>38</span> PPI</button>
+            <p>Current Bid: <br><span>37 PPI</span></p>
+            <p><span id="bAddress">x0827492</span></p> 
+        </div>
+    </div>    
+
+    <div class="memeBits w3-margin-top w3-row">
+        <div class="memePic w3-col s9 m9 l9">
+            <img src="images/muchFox.jpg" class="w3-border w3-padding">
+        </div>
+        
+        <div class="memeText w3-col s2 m2 l2">
+            <button class="w3-button w3-round-large w3-ripple">Bid <span>80</span> PPI</button>
+            <p>Current Bid: <br><span>79.8 PPI</span></p>
+            <p><span id="bAddress">x0827492</span></p> 
+        </div>
+    </div>     
+
+
+    <div class="memeBits w3-margin-top w3-row">
+            <div class="memePic w3-col s9 m9 l9">
+                <img src="images/intense.jpg" class="w3-border w3-padding">
             </div>
-        </section>
+            
+            <div class="memeText w3-col s2 m2 l2 w3-container">
+                <button class="w3-button w3-round-large w3-ripple">Bid <span>80,000</span> PPI</button>
+                <p>Current Bid:
+                <br><span>79,900 PPI</span></br>
+                <p><span id="bAddress">x0827492</span></p> 
+            </div>
+        </div>     
 
-    </article>
+</article>
 
-
-    <footer class="w3-bottomleft w3-block w3-margin-top">
-        <div class=" w3-center w3-bar w3-container w3-panel">
-<!-- #TODO JS logic to add grey to previous button if the 1st PG -->
-            <a href="#" class="w3-hover-none w3-button w3-text-gray">&#10094;</a>
-            <a href="#" class="w3-hover-none w3-button w3-border-bottom">1</a>
-            <a href="#" class="w3-hover-none w3-button">2</a>
-            <a href="#" class="w3-hover-none w3-button">3</a>
-            <a href="#" class="w3-hover-none w3-button">4</a>
-            <a href="#" class="w3-hover-none w3-button"> &#10095;</a>
-        </div>
-
-        <div class="w3-light-grey w3-container">
-            <p class="w3-small w3-container">
-                &copy;<span id="copyrightYear">2018</span> by __. All Rights Reserved.
-            </p>
-        </div>
-    </footer>
-
-    <script src="scripts/app.js"></script>
+<footer class="w3-container w3-light-grey w3-center">
+    <h5>Connect With Us On Social Media</h5>
+    <p>Twitter Telegram Telegram announcements Weibo Discord BitcoinTalk </p>
+</footer>
+    
+<script src="scripts/app.js"></script>
 </body>
 </html>

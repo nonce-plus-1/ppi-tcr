@@ -1,4 +1,5 @@
-var dayAuctionEnds = "Sep 5, 2018 15:37:25";
+var dayAuctionEnds = "Sep 5, 2018";
+// var dayAuctionEnds = "Sep 5, 2018 15:37:25";
 var countdownDate = new Date(dayAuctionEnds).getTime();
 
 // Update the count down every 1 second
