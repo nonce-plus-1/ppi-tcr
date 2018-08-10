@@ -9,20 +9,25 @@
 
     <link href="http://www.jsdelivr.com/#!particles.js">
 
-    <link href="https://fonts.googleapis.com/css?family=Cantarell|Open+Sans|Oxygen|Roboto+Slab|Ubuntu" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:700|Roboto+Slab" rel="stylesheet"> 
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <title>PiedPiperCoin Meme Bid</title>
 </head>
 
 <body>
-<header class="ppiGreenBkgd w3-container">
+<header class="ppiGreenBkgd w3-container landingHeader">
     <p>
-        <img src="images/ppi.png" class="ppiLogo">
+        <a href="#">
+            <img src="images/ppi.png" class="ppiLogo">
+            <h1 class="logoText"> PIED PIPER COIN</h1>
+        </a>
     </p>
-    <h1> PIED PIPER COIN</h1>
+
+    
 
     <div class="w3-center">
-<!-- TODO: MEME TEXT SLIDES OVER TO THE RIGHT SLIGHTLY UPON ZOOM OUT -->
         <h1 class="w3-xxxlarge">MEME BID</h1>
         <p class="w3-xlarge">This week’s Meme Auction Ends on</p>
         <p class="w3-xlarge auctionEnd"><span id="auctionCountdownEndDate"></span> 9pm EST</p>
@@ -32,8 +37,13 @@
             <span id=auctionCountdownMinutes></span><span class="w3-tiny">M: </span>  
             <span id=auctionCountdownSeconds></span><span class="w3-tiny">S </span> 
         </div>
-        <a href="#" class="w3-panel">
-            <button class="w3-button w3-hover-white w3-ripple w3-round-large ppiCTA">Submit Meme</button>
+
+        <a href="memeSubmission.html" class="w3-panel">
+            <button class="w3-button w3-hover-white w3-ripple w3-round-large ppiCTA">
+                <!-- <a href="memeSubmission.html"> -->
+                    Submit Meme
+                <!-- </a> -->
+            </button>
         </a>
     </div>        
 </header>
@@ -63,7 +73,6 @@
         </div>
     </div>     
 
-
     <div class="memeBits w3-margin-top w3-row">
             <div class="memePic w3-col s9 m9 l9">
                 <img src="images/intense.jpg" class="w3-border w3-padding">
@@ -75,8 +84,48 @@
                 <br><span>79,900 PPI</span></br>
                 <p><span id="bAddress">x0827492</span></p> 
             </div>
-        </div>     
+        </div>  
+        
+        
+    <div class="memeBits w3-margin-top w3-row">
+        <div class="memePic w3-col s9 m9 l9">
+            <img src="images/9bc.jpg" class="w3-border w3-padding">
+        </div>
+        
+        <div class="memeText w3-col s2 m2 l2 w3-container">
+            <button class="w3-button w3-round-large w3-ripple">Bid <span>7</span> PPI</button>
+            <p>Current Bid:
+            <br><span>6 PPI</span></br>
+            <p><span id="bAddress">x0827492</span></p> 
+        </div>
+    </div>  
 
+
+    <div class="memeBits w3-margin-top w3-row">
+        <div class="memePic w3-col s9 m9 l9">
+            <img src="images/very-hedge-much-stuck-am-shrub-pls-down-wow-2569112.png" class="w3-border w3-padding">
+        </div>
+        
+        <div class="memeText w3-col s2 m2 l2 w3-container">
+            <button class="w3-button w3-round-large w3-ripple">Bid <span>30</span> PPI</button>
+            <p>Current Bid:
+            <br><span>29 PPI</span></br>
+            <p><span id="bAddress">x0827492</span></p> 
+        </div>
+    </div>  
+
+    <div class="memeBits w3-margin-top w3-row">
+            <div class="memePic w3-col s9 m9 l9">
+                <img src="images/such-problem-much-fix-very-tech-such-support-wow-2737205.png" class="w3-border w3-padding">
+            </div>
+            
+            <div class="memeText w3-col s2 m2 l2 w3-container">
+                <button class="w3-button w3-round-large w3-ripple">Bid <span>40</span> PPI</button>
+                <p>Current Bid:
+                <br><span>39 PPI</span></br>
+                <p><span id="bAddress">x0827492</span></p> 
+            </div>
+        </div>  
 </article>
 
 <footer class="w3-container w3-light-grey w3-center">
@@ -84,6 +133,6 @@
     <p>Twitter Telegram Telegram announcements Weibo Discord BitcoinTalk </p>
 </footer>
     
-<script src="scripts/app.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
