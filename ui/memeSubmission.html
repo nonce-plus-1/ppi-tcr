@@ -11,7 +11,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:700|Roboto+Slab" rel="stylesheet"> 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     
     <title>PiedPiperCoin Meme Upload</title>
 </head>
@@ -41,28 +41,80 @@
     </p>
 
     <p class="w3-justify w3-container">
-        Just Make sure your meme is in JPEG, PNG or JPG format and is not over 9000 in size or awesomeness. Dictumst quisque sagittis purus sit amet volutpat consequat. Fermentum iaculis eu non diam phasellus vestibulum lorem sed. Pretium quam vulputate dignissim suspendisse in est ante in. Nam aliquam sem et tortor consequat id porta nibh venenatis.
+        Just make sure your meme is in JPEG, PNG or JPG format and is not over 9000 in size or awesomeness. Dictumst quisque sagittis purus sit amet volutpat consequat. Fermentum iaculis eu non diam phasellus vestibulum lorem sed. Pretium quam vulputate dignissim suspendisse in est ante in. Nam aliquam sem et tortor consequat id porta nibh venenatis.
     </p>
   
     
     <form action="/" class="w3-center">
         <label class="nameInputLabel">MEME TITLE: </label> 
         <input class="w3-input w3-hover-light-gray w3-show-inline-block" type="text" style="width: 40%;">
-        <div class="uploadBorder">
+        <div class="uploadBorder" id="drop-area">
             <p>DRAG AND DROP</p>
             <p>OR</p>
-           <p><button class="w3-hover-lime w3-button w3-round-large"><a href="/">BROWSE FILES</a></button></p> 
+            <button class="w3-hover-lime w3-button w3-round-large"><label class="button" for="fileElem"></label><input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)"></button>
+                <br>
+
+              <!-- <p><button class="w3-hover-lime w3-button w3-round-large"><a href="/">BROWSE FILES</a></button></p>  -->
         </div>
     </form>
-
+          
 </section>
 
 
 <footer class="w3-container w3-light-grey w3-center">
-    <h5>Connect With Us On Social Media</h5>
-    <p>Twitter Telegram Telegram announcements Weibo Discord BitcoinTalk </p>
+    <h5 class="w3-text-dark-grey w3-wide">Connect With Us On Social Media</h5>
+
+    <section class="socialMediaLinks">
+            <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
+                <a href="https://twitter.com/piedpipercoin">
+                    <i class="fab fa-twitter"></i>
+                    <br>
+                    Twitter 
+                </a>
+            </p>
+                
+            <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
+                <a href="http://www.weibo.com/PiedPiperCN">
+                    <i class="fab fa-weibo"></i>
+                    <br>
+                    Weibo
+                </a>
+            </p>
+                    
+            <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
+                <a href="https://discord.gg/nP789fD">
+                    <i class="fab fa-discord"></i>
+                    <br>
+                    Discord
+                </a>
+            </p>
+
+            <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
+                <a href="https://bitcointalk.org/index.php?topic=3660872.0">
+                    <i class="fab fa-bitcoin"></i>
+                    <br>
+                    BitcoinTalk
+                </a>
+            </p>
+
+            <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
+                    <a href="https://t.me/joinchat/H0RcsEh5ozt3yAQEasMhxw">
+                        <i class="fab fa-telegram-plane"></i>
+                        <br>
+                        Telegram 
+                    </a>
+                </p>
+                    
+                <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
+                    <a href="https://t.me/PiedPiperCoinChannel">
+                        <i class="fab fa-telegram-plane"></i>
+                        <br>
+                        Telegram Announcements
+                    </a>
+                </p>
+        </section>
 </footer>
     
-<!-- <script src="js/app.js"></script> -->
+<script src="js/app.js"></script>
 </body>
 </html>

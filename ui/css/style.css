@@ -218,7 +218,7 @@ textarea {
 /* End extract */
 
 .w3-wide {
-    letter-spacing: 4px
+    letter-spacing: .07em;
 }
 
 hr {
@@ -2033,6 +2033,7 @@ article{
 
 .uploadBorder button{
     background-color: #C9F308;
+    padding: .5vw !important;
 }
 
 .uploadBorder button:hover {
@@ -2040,7 +2041,7 @@ article{
     background-color: white !important;
     border: 2px solid  #C9F308 !important;
     border-radius: 8px;
-    padding: 6px 14px;
+    padding: .5vw !important;
     text-shadow: 0px 1px 1px rgb(150, 150, 150);
 }
 
@@ -2048,3 +2049,30 @@ article{
     font-weight: 600;
     font-family: 'Open Sans Condensed', sans-serif;    
 }
+
+.socialMediaLinks p{
+    color: rgb(159, 158, 158) !important;
+}
+
+.socialMediaLinks p:hover {
+    color:  rgba(20, 74, 46, 0.929) !important;
+}
+
+/* ------Upload Section */
+  #drop-area.highlight {
+    border-color: rgb(184, 247, 75);
+    text-shadow: 0px 1px 1px rgb(150, 150, 150);
+
+  }
+
+  #gallery {
+    margin-top: 10em;
+  }
+  #gallery img {
+    width: 30%;
+    margin-bottom: 10%;
+    margin-right: 10%;
+    vertical-align: middle;
+  }
+
+  
