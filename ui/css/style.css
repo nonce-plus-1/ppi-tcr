@@ -979,6 +979,7 @@ a {
 .w3-container,
 .w3-panel {
     padding: 0.01em 16px
+
 }
 
 .w3-panel {
@@ -990,6 +991,7 @@ a {
 .w3-codespan {
     font-family: Consolas, "courier new";
     font-size: 16px
+    
 }
 
 .w3-code {
@@ -998,6 +1000,7 @@ a {
     padding: 8px 12px;
     border-left: 4px solid #4CAF50;
     word-wrap: break-word
+    
 }
 
 .w3-codespan {
@@ -1006,6 +1009,7 @@ a {
     padding-left: 4px;
     padding-right: 4px;
     font-size: 110%
+    
 }
 
 .w3-card,
@@ -2057,10 +2061,130 @@ article{
     color:  rgba(20, 74, 46, 0.929) !important;
 }
 
+
+grey-text /*idk man */
+{
+    color: #9FB899;
+}
+
+
+
+
 /* ------Upload Section */
+
   #drop-area.highlight {
     background-color:  rgba(180, 179, 179, 0.84); 
   }
+  /* 
+shades of green colors: 
+HEX
+(light to dark)
+#90e37c
+#6ac255
+#4a9f35
+#338520
+#206310
+#144a2E
+
+color of base website 
+#144A2E
+*/
   
+  #urlInput
+  {
+      background: #144A2E;
+      padding: 10px;
+      height: 47px;
+      font-family: 'Open Sans Condensed', sans-serif;  
+  }
+
+  #imageURLDisplay
+{
+    padding-left: 20%;
+    text-align: justify;
+    color: #4a9f35;
+    margin:auto;
+    font-family: 'Open Sans Condensed', sans-serif;  
+}
+
+#urlField
+{
+    text-align: justify;
+    padding-right: 30%;
+    color: #0D4400;
+    margin:auto;
+    font-family: 'Open Sans Condensed', sans-serif;  
+    border: 2px solid green;
+    border-radius: 3px;
+}
+
+#urlInput form
+{
+    padding-right: 30%;
+    float: right;
+    margin-top: -25px;
+    font-family: 'Open Sans Condensed', sans-serif;  
+
+}
+
+#urlInput input[type="text"]
+{
+    /*float: center;*/
+    padding: 4px;
+    height: 25px;
+    width: 320px;
+    display: inline-block;
+    border: 1px solid #90e37c;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #1B8900;
+    box-shadow: #0D4400;
+    font-family: 'Open Sans Condensed', sans-serif;  
+}
+
+.submitButton
+{
+    /*float: right;*/
+    height: 40px;
+    background: #338520;
+    border: 2px solid #90e37c;
+    border-radius: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.submitButton:hover
+{
+    height: 40px;
+    background: #FFFFFF;
+    border: 2px solid #59DC39;
+    border-radius: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #136100;
+}
+
   
-  
+#spacer 
+{
+    height: 30px;
+}
+
+#bigger_spacer 
+{
+    height: 100px;
+}
+
+#tiny_spacer
+{
+    height: 10px;
+}
+
+tinyer_spacer
+{
+    height: 3px;
+}
