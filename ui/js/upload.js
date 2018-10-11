@@ -1,4 +1,4 @@
-    const registryContractABI = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getMinDeposit","outputs":[{"name":"amount","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"listingHash","type":"bytes32"},{"name":"amount","type":"uint256"}],"name":"upvote","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"submissionsMapping","outputs":[{"name":"submitter","type":"address"},{"name":"expirationTime","type":"uint256"},{"name":"upvoteTotal","type":"uint256"},{"name":"downvoteTotal","type":"uint256"},{"name":"submittedDataHash","type":"bytes32"},{"name":"completed","type":"bool"},{"name":"exists","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"minDeposit","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"listingHash","type":"bytes32"}],"name":"removeListing","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"hashSearched","type":"bytes32"}],"name":"getListingData","outputs":[{"name":"data","type":"uint256[3]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"submissionsArray","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"givenDataHash","type":"bytes32"},{"name":"amount","type":"uint256"}],"name":"addSubmission","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"listingHash","type":"bytes32"},{"name":"amount","type":"uint256"}],"name":"downvote","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[],"name":"Reigistry","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"calculateVotes","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_token","type":"address"},{"name":"_name","type":"string"}],"name":"init","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"token","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getAllHashes","outputs":[{"name":"allListings","type":"bytes32[]"}],"payable":false,"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"upvoter","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"_UpvoteCast","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"downvoter","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"_DownvoteCast","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingHash","type":"bytes32"}],"name":"_SubmissionPassed","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingHash","type":"bytes32"}],"name":"_SubmissionDenied","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingHash","type":"bytes32"}],"name":"_ListingSubmitted","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingHash","type":"bytes32"}],"name":"_ListingRemoved","type":"event"}];
+    const registryContractABI = [ABI];
     const contractAddress = `0x...`;
     let registryContractInstance;
 
@@ -70,15 +70,24 @@
     }
     }
 
+    function getMinDeposit(){
+        registryContractInstance.getMinDeposit(account, function(error, result){
+            if (!error){
+                document.getElementById('minDeposit').value = 'Minimum Deposit: ' + result;
+            } else
+                console.log(error);
+        })
+    }
+
     function sendListing(){
-        if(document.getElementById('URLIDHERE').value !== undefined && document.getElementById('AMOUNTIDHERE').value !== undefined){
-            registryContractInstance.addSubmission(document.getElementById('URLIDHERE').value, document.getElementById('AMOUNTIDHERE').value, function(error, transactionHash){
+        if(document.getElementById('urlField').value !== undefined && document.getElementById('minDeposit').value !== undefined && document.getElementById('AMOUNTIDHERE').value >= document.getElementById('minDeposit').value){
+            registryContractInstance.addSubmission(document.getElementById('urlField').value, document.getElementById('AMOUNTIDHERE').value, function(error, transactionHash){
                 if(error){
                     console.log(transactionHash);
                 }
             });
             document.getElementById('AMOUNTIDHERE').value = '';
-            document.getElementById('URLIDHERE').value = '';
+            document.getElementById('urlField').value = '';
         }
         else
             console.log("Error: One of two fields not filled out");

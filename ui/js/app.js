@@ -1,6 +1,7 @@
 //Importing Contract
-const registryContractABI = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getMinDeposit","outputs":[{"name":"amount","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"listingHash","type":"bytes32"},{"name":"amount","type":"uint256"}],"name":"upvote","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"submissionsMapping","outputs":[{"name":"submitter","type":"address"},{"name":"expirationTime","type":"uint256"},{"name":"upvoteTotal","type":"uint256"},{"name":"downvoteTotal","type":"uint256"},{"name":"submittedDataHash","type":"bytes32"},{"name":"completed","type":"bool"},{"name":"exists","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"minDeposit","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"listingHash","type":"bytes32"}],"name":"removeListing","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"hashSearched","type":"bytes32"}],"name":"getListingData","outputs":[{"name":"data","type":"uint256[3]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"submissionsArray","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"givenDataHash","type":"bytes32"},{"name":"amount","type":"uint256"}],"name":"addSubmission","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"listingHash","type":"bytes32"},{"name":"amount","type":"uint256"}],"name":"downvote","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[],"name":"Reigistry","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"calculateVotes","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_token","type":"address"},{"name":"_name","type":"string"}],"name":"init","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"token","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getAllHashes","outputs":[{"name":"allListings","type":"bytes32[]"}],"payable":false,"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"upvoter","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"_UpvoteCast","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"downvoter","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"_DownvoteCast","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingHash","type":"bytes32"}],"name":"_SubmissionPassed","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingHash","type":"bytes32"}],"name":"_SubmissionDenied","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingHash","type":"bytes32"}],"name":"_ListingSubmitted","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingHash","type":"bytes32"}],"name":"_ListingRemoved","type":"event"}];
+const registryContractABI = [ABI];
 const contractAddress = `0x...`;
+const PocketProvider = require('web3-pocket-provider');
 let registryContractInstance;
 let account;
 
@@ -9,7 +10,7 @@ function setup(){
         // Use Mist/MetaMask's provider
         web3 = new Web3(web3.currentProvider);
       } else {
-        alert('This site relies on MetaMask to function properly. Please install MetaMask');
+        alert('This site relies on MetaMask to function properly. Please install MetaMask at https://metamask.io/');
         // fallback 
         web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
       }
@@ -23,7 +24,7 @@ function setup(){
 }
 
 // Fake Auction Count Down
-let dayAuctionEnds = "Sep 5, 2018";
+let dayAuctionEnds = "Nov 5, 2018";
 // let dayAuctionEnds = "Sep 5, 2018 15:37:25";
 let countdownDate = new Date(dayAuctionEnds).getTime();
 
@@ -64,24 +65,24 @@ function getSubmissions(){
             let tempJSONObject = {entry, 
                 expirationTime, 
                 totalTokens, 
-                upvote : function(){
-                    if(document.getElementById('AMOUNTIDHERE').value !== undefined){
-                        registryContractInstance.upvote(this.entry, amount, function(error,transactionHash){
+                upvote : function(amountField){
+                    if(document.getElementById(amountField).value !== undefined){
+                        registryContractInstance.upvote(this.entry, document.getElementById(amountField).value, function(error,transactionHash){
                             if (error)
                                 console.log(transactionHash);
                             });
-                            document.getElementById('AMOUNTIDHERE').value = '';
+                            document.getElementById(amountField).value = '';
                         }
                     else
                         console.log("Please enter an amount before clicking this button.");
                 }, 
-                downvote : function(){
-                    if(document.getElementById('AMOUNTIDHERE').value !== undefined){
-                        registryContractInstance.downvote(this.entry, amount, function(error,transactionHash){
+                downvote : function(amountField){
+                    if(document.getElementById(amountField).value !== undefined){
+                        registryContractInstance.downvote(this.entry, document.getElementById(amountField).value, function(error,transactionHash){
                             if (error)
                                 console.log(transactionHash);
                             });
-                            document.getElementById('AMOUNTIDHERE').value = '';
+                            document.getElementById(amountField).value = '';
                         }
                     else
                         console.log("Please enter an amount before clicking this button.");
@@ -110,19 +111,18 @@ function getSubmissions(){
 //Dynamically display all submissions on site
 function displaySubmissions(allSubmissions){
     for(let i = 0 ; i < allSubmissions.length ; i++){
-        addElement('PARENTIDHERE', 'listing', i, allSubmissions[i]);
+        addElement('listingpanel', i, allSubmissions[i]);
     }
 }
 
-function addElement(parentId, elementTag, elementId, submission) {
+function addElement(contaner_id, i, submission){
     let time = new Date();
-    // Adds an element to the document
-    let p = document.getElementById(parentId);
-    let newElement = document.createElement(elementTag);
-    newElement.setAttribute('id', elementId);
-
-    newElement.image.innerHTML = submission.entry;
-    newElement.expiryTime.innerHTML = time.getTime() - submission.expirationTime; //hope
-    newElement.totalTokens.innerHTML = submission.totalTokens;
-    p.appendChild(newElement);
+    container = document.getElementById(contaner_id);
+    let subElement = "<div class='memeBits w3-margin-top w3-row w3-container'" +
+    "<div class='listing w3-col s9 m9 l9'><img src='"+submission.entry+"' class='w3-border w3-padding'></div><section id='spacer'></section>" +
+    "<input type='image' src='images/vote_up3.png' onMouseOver='this.src='images/vote_up_highlight3.png'' onMouseOut='this.src='images/vote_up3.png'' onclick='"+submission.upvote('amountField'+i)+"'>" +
+    "<section id='tinyer_spacer'></section><input type='image' src='images/vote_down3.png' onMouseOver='this.src='images/vote_down_highlight3.png'' onMouseOut='this.src='images/vote_down3.png'' onclick='"+submission.downvote('amountField'+i)+"'>" +
+    "<section id='tiny_space'></section><input id='amountField"+i+"' type='text' placeholder='enter amount...'><section id='bigger_spacer'></section>"+
+    "<div class='w3-large'>meme poll ends in:"+time.getTime()-time.getTime(submission.expirationTime)+"</div><div class='w3-large'>days</div><div class='w3-large' id='currentTokens'>Current Value:"+submission.totalTokens+"</div></div>";
+    container.appendChild(subElement);
 }
