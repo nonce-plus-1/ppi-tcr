@@ -2152,13 +2152,13 @@ color of base website
   {
       background: #144A2E;
       padding: 10px;
-      height: 47px;
+      height: 110px;
       font-family: 'Open Sans Condensed', sans-serif;  
   }
 
   #imageURLDisplay
 {
-    padding-left: 20%;
+    padding-left: 30%;
     text-align: justify;
     color: #4a9f35;
     margin:auto;
@@ -2169,11 +2169,26 @@ color of base website
 {
     text-align: justify;
     padding-right: 30%;
+    width: 100px;
     color: #0D4400;
     margin:auto;
     font-family: 'Open Sans Condensed', sans-serif;  
     border: 2px solid green;
     border-radius: 3px;
+    display: center;
+}
+
+#amountField
+{
+    text-align: justify;
+    padding-right: 30%;
+    width: 75px;
+    color: #0D4400;
+    margin:auto;
+    font-family: 'Open Sans Condensed', sans-serif;  
+    border: 2px solid green;
+    border-radius: 3px;
+    display: center;
 }
 
 #urlInput form
@@ -2191,12 +2206,9 @@ color of base website
     padding: 4px;
     height: 25px;
     width: 320px;
-    display: inline-block;
     border: 1px solid #90e37c;
     border-radius: 4px;
-    box-sizing: border-box;
     color: #1B8900;
-    box-shadow: #0D4400;
     font-family: 'Open Sans Condensed', sans-serif;  
 }
 
@@ -2235,6 +2247,11 @@ color of base website
 #bigger_spacer 
 {
     height: 100px;
+}
+
+#bigboy_spacer
+{
+    height: 200px;
 }
 
 #tiny_spacer
