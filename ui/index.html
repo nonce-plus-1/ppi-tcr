@@ -48,20 +48,22 @@
     </div>        
 </header>
 
-<article class="w3-panel">
+<article class="listing">
     <div class="memeBits w3-margin-top w3-row w3-container">
-        <div class="listing w3-col s9 m9 l9">
+        <div class="memePic w3-col s9 m9 l9">
             <img src="images/bitdoge.jpg" class="w3-border w3-padding">
         </div>
-
+        
         <section id="spacer"></section>
 
-        <input type="image" src="images/vote_up3.png" onMouseOver="this.src='images/vote_up_highlight3.png'" onMouseOut="this.src='images/vote_up3.png'" onclick="">
+        <button id="upvote" type="vote_button" class="listing" onclick="sendUpvotes()">▲</button>
+        <!--<input type="image" src="images/vote_up3.png" onMouseOver="this.src='images/vote_up_highlight3.png'" onMouseOut="this.src='images/vote_up3.png'" onclick=""> -->
         <!-- <input id="amountField" type="text" placeholder="enter amount..."> //if you want a second input -->
 
         <section id="tinyer_spacer"></section>
-        
-        <input type="image" src="images/vote_down3.png" onMouseOver="this.src='images/vote_down_highlight3.png'" onMouseOut="this.src='images/vote_down3.png'" onclick="">
+
+        <button id="downvote" type="vote_button" class="listing" onclick="sendDownvotes()">▼</button>
+        <!--<input type="image" src="images/vote_down3.png" onMouseOver="this.src='images/vote_down_highlight3.png'" onMouseOut="this.src='images/vote_down3.png'" onclick=""> -->
         
         <section id="tiny_spacer"></section>
 
@@ -81,10 +83,12 @@
         <div class="w3-large">
              days    
             </div>
-
-        <!--
+<!--
+            <section id="bigger_spacer"></section>
         <div class="memeText w3-col s2 m2 l2">
-                <input type="image" src="http://example.com/path/to/image.png" />
+                <div class="memePic w3-col s9 m9 l9">
+                        <img src="images/developer-doge.jpg" class="w3-border w3-padding">
+                    </div>
             <button class="w3-button w3-round-large w3-ripple">Bid <span>38</span> PPI</button>
             <p>Current Bid: <br><span>37 PPI</span></p>
             <p><span id="bAddress">x0827492</span></p> 
@@ -92,7 +96,7 @@
     </div>    
 -->
 
-    
+    <!--
     <div class="memeBits w3-margin-top w3-row">
         <div class="memePic w3-col s9 m9 l9">
             <img src="images/muchFox.jpg" class="w3-border w3-padding">
@@ -104,7 +108,7 @@
             <p><span id="bAddress">x0827492</span></p> 
         </div>
     </div>     
-<!--
+
     <div class="memeBits w3-margin-top w3-row">
             <div class="memePic w3-col s9 m9 l9">
                 <img src="images/intense.jpg" class="w3-border w3-padding">

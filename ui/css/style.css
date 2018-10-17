@@ -2062,10 +2062,68 @@ article{
 }
 
 
-grey-text /*idk man */
+.listing
 {
-    color: #9FB899;
+    max-width: 100%;
+    height: auto;
 }
+
+.listing-img{
+    float: right;
+    margin-right: 7%;
+    max-width: 80%;
+    height: auto;
+    border-width: 15px;
+    border-color: white;
+}
+/* i found arrow looking things ▲ ▼ */
+.listing button
+{    
+    background-color: white;
+    border-width: 2px;
+    border-color: #144A2E;
+    color: #144A2E;
+
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;    
+
+}
+
+vote_button
+{
+    background-color: white;
+    border-width: 2px;
+    border-color: #144A2E;
+    color: #144A2E;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;  
+}
+
+.listing vote_button:hover
+{    
+    background-color: #144A2E;
+    border-width: 2px;
+    border-color: white;
+    color: white;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;    
+}
+
+
+
 
 
 
