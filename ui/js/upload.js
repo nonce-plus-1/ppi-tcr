@@ -1,3 +1,11 @@
+    const registryContractABI = [ABI];
+    const contractAddress = `0x...`;
+    let registryContractInstance;
+
+    function setupSubmission(){
+        const registryContract = web3.eth.contract(registryContractABI);
+        registryContractInstance = registryContract.at(contractAddress);
+    }
 
     // Upload Area
     var input = document.querySelector('input');
@@ -60,4 +68,27 @@
     } else if(number >= 1048576) {
         return (number/1048576).toFixed(1) + 'MB';
     }
+    }
+
+    function getMinDeposit(){
+        registryContractInstance.getMinDeposit(account, function(error, result){
+            if (!error){
+                document.getElementById('minDeposit').value = 'Minimum Deposit: ' + result;
+            } else
+                console.log(error);
+        })
+    }
+
+    function sendListing(){
+        if(document.getElementById('urlField').value !== undefined && document.getElementById('minDeposit').value !== undefined && document.getElementById('AMOUNTIDHERE').value >= document.getElementById('minDeposit').value){
+            registryContractInstance.addSubmission(document.getElementById('urlField').value, document.getElementById('AMOUNTIDHERE').value, function(error, transactionHash){
+                if(error){
+                    console.log(transactionHash);
+                }
+            });
+            document.getElementById('AMOUNTIDHERE').value = '';
+            document.getElementById('urlField').value = '';
+        }
+        else
+            console.log("Error: One of two fields not filled out");
     }
