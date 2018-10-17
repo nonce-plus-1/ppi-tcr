@@ -26,6 +26,7 @@ contract Registry {
     mapping( bytes => Submission ) public submissionsMapping; //Ensures uniqueness of submissions
     bytes[] public submissionsArray; //Indexes mapping
     EIP20Interface public token;
+    string public name;
     uint public minDeposit;
     
     //Constructor
@@ -57,6 +58,7 @@ contract Registry {
     function init(address _token, string _name) public {
         require(_token != 0 && address(token) == 0, "Token provided invalid");
         token = EIP20Interface(_token);
+        name = _name;
     }
     
     function addSubmission(bytes givenDataHash, uint amount) public payable {
