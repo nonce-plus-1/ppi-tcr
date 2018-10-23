@@ -1,0 +1,22 @@
+{
+  "name": "ppi-tcr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kthomas4031/ppi-tcr.git"
+  },
+  "author": "Kyle Thomas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kthomas4031/ppi-tcr/issues"
+  },
+  "homepage": "https://github.com/kthomas4031/ppi-tcr#readme",
+  "dependencies": {
+    "web3": "^1.0.0-beta.36"
+  }
+}
