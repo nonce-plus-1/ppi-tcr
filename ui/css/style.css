@@ -2148,7 +2148,7 @@ color of base website
 #144A2E
 */
   
-  #urlInput
+#urlInput
   {
       background: #144A2E;
       padding: 10px;
@@ -2156,10 +2156,10 @@ color of base website
       font-family: 'Open Sans Condensed', sans-serif;  
   }
 
-  #imageURLDisplay
+#imageURLDisplay
 {
-    padding-left: 30%;
-    text-align: justify;
+    padding-left: 15%;
+    text-align: left;
     color: #4a9f35;
     margin:auto;
     font-family: 'Open Sans Condensed', sans-serif;  
@@ -2169,7 +2169,7 @@ color of base website
 {
     text-align: justify;
     padding-right: 30%;
-    width: 100px;
+    width: 30%;
     color: #0D4400;
     margin:auto;
     font-family: 'Open Sans Condensed', sans-serif;  
@@ -2180,7 +2180,7 @@ color of base website
 
 #amountField
 {
-    text-align: justify;
+    text-align: center;
     padding-right: 30%;
     width: 75px;
     color: #0D4400;
@@ -2191,13 +2191,24 @@ color of base website
     display: center;
 }
 
+#amountField2
+{
+    text-align: center;
+    width: 25px;
+    color: #0D4400;
+    margin: auto;
+    font-family: 'Open Sans Condensed', sans-serif;  
+    border: 2px solid green;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
 #urlInput form
 {
     padding-right: 30%;
     float: right;
     margin-top: -25px;
     font-family: 'Open Sans Condensed', sans-serif;  
-
 }
 
 #urlInput input[type="text"]

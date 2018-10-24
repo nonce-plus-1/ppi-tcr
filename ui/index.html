@@ -63,41 +63,46 @@
         </div>
         
         <section id="spacer"></section>
-
-        <button id="upvote" type="vote_button" class="listing" onclick="sendUpvotes()">▲</button>
+        <!-- i commented out the old html stuff, for some reason the input field thinks theres a space-->
         <!--<input type="image" src="images/vote_up3.png" onMouseOver="this.src='images/vote_up_highlight3.png'" onMouseOut="this.src='images/vote_up3.png'" onclick=""> -->
         <!-- <input id="amountField" type="text" placeholder="enter amount..."> //if you want a second input -->
-        <input type="image" src="images/vote_up3.png" onMouseOver="this.src='images/vote_up_highlight3.png'" onMouseOut="this.src='images/vote_up3.png'" onclick="">
-
+        <!-- ******* this is the big button ******* <input type="image" src="images/vote_up3.png" onMouseOver="this.src='images/vote_up_highlight3.png'" onMouseOut="this.src='images/vote_up3.png'" onclick="">  -->
+        <!-- <input id="amountField" type="text" placeholder="enter amount..."> //if you want a second input -->
         <!-- <input id="amountField" type="text" placeholder="enter amount..."> //if you want a second input -->
 
-        <!-- <input id="amountField" type="text" placeholder="enter amount..."> //if you want a second input -->
 
-
+        <button id="vote_button" type="button" class="listing" onclick="sendUpvotes()">▲</button>
         <section id="tinyer_spacer"></section>
+        <button id="vote_button" type="button" class="listing" onclick="sendDownvotes()">▼</button>
+       <!-- ******* this is the big button ******* <input type="image" src="images/vote_down3.png" onMouseOver="this.src='images/vote_down_highlight3.png'" onMouseOut="this.src='images/vote_down3.png'" onclick=""> -->
 
-        <button id="downvote" type="vote_button" class="listing" onclick="sendDownvotes()">▼</button>
-        <input type="image" src="images/vote_down3.png" onMouseOver="this.src='images/vote_down_highlight3.png'" onMouseOut="this.src='images/vote_down3.png'" onclick=""> 
-        
-        <section id="tiny_spacer"></section>
-
-        <input id="amountField" type="text" placeholder="enter amount...">
+        <input id="amountField" type="text" placeholder="enter bid amount">
+        <input id="amountField" type="text" placeholder="enter bid amount">
         <!-- need an if no amount entered statement -->
         
         <div class="w3-medium">
                 (minimum: 50)
         </div>
 
-        <section id="bigger_spacer"></section>
+        <!--<section id="bigger_spacer"></section>-->
 
         <div class="w3-large">
             meme poll ends in: 
-
         </div>
 
         <div class="w3-large">
              days    
             </div>
+
+            <div class="w3-large" id="currentTokens">
+                Current Value: 25061
+            </div>
+        </div>    
+    
+            <div class="w3-large">
+                 days    
+                </div>        
+ 
 <!--
             <section id="bigger_spacer"></section>
         <div class="memeText w3-col s2 m2 l2">
@@ -183,14 +188,6 @@
         </div>  
 -->
 
-        <div class="w3-large" id="currentTokens">
-            Current Value: 25061
-        </div>
-    </div>    
-
-        <div class="w3-large">
-             days    
-            </div>
 
         <!--
         <div class="memeText w3-col s2 m2 l2">
@@ -283,63 +280,65 @@
             </div>
         </div>  
 -->
+<section id="bigger_spacer"></section>   
+</div>
 </article>
 
 
 <footer class="w3-container w3-light-grey w3-center">
-        <h5 class="w3-text-dark-grey w3-wide">Connect With Us On Social Media</h5>
-    
-        <section class="socialMediaLinks">
-                <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
-                    <a href="https://twitter.com/piedpipercoin">
-                        <i class="fab fa-twitter"></i>
+    <h5 class="w3-text-dark-grey w3-wide">Connect With Us On Social Media</h5>
+
+    <section class="socialMediaLinks">
+            <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
+                <a href="https://twitter.com/piedpipercoin">
+                    <i class="fab fa-twitter"></i>
+                    <br>
+                    Twitter 
+                </a>
+            </p>
+                
+            <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
+                <a href="http://www.weibo.com/PiedPiperCN">
+                    <i class="fab fa-weibo"></i>
+                    <br>
+                    Weibo
+                </a>
+            </p>
+                    
+            <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
+                <a href="https://discord.gg/nP789fD">
+                    <i class="fab fa-discord"></i>
+                    <br>
+                    Discord
+                </a>
+            </p>
+
+            <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
+                <a href="https://bitcointalk.org/index.php?topic=3660872.0">
+                    <i class="fab fa-bitcoin"></i>
+                    <br>
+                    BitcoinTalk
+                </a>
+            </p>
+
+            <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
+                    <a href="https://t.me/joinchat/H0RcsEh5ozt3yAQEasMhxw">
+                        <i class="fab fa-telegram-plane"></i>
                         <br>
-                        Twitter 
+                        Telegram 
                     </a>
                 </p>
                     
                 <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
-                    <a href="http://www.weibo.com/PiedPiperCN">
-                        <i class="fab fa-weibo"></i>
+                    <a href="https://t.me/PiedPiperCoinChannel">
+                        <i class="fab fa-telegram-plane"></i>
                         <br>
-                        Weibo
+                        Telegram Announcements
                     </a>
                 </p>
-                        
-                <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
-                    <a href="https://discord.gg/nP789fD">
-                        <i class="fab fa-discord"></i>
-                        <br>
-                        Discord
-                    </a>
-                </p>
+        </section>
+</footer>
     
-                <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
-                    <a href="https://bitcointalk.org/index.php?topic=3660872.0">
-                        <i class="fab fa-bitcoin"></i>
-                        <br>
-                        BitcoinTalk
-                    </a>
-                </p>
-    
-                <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
-                        <a href="https://t.me/joinchat/H0RcsEh5ozt3yAQEasMhxw">
-                            <i class="fab fa-telegram-plane"></i>
-                            <br>
-                            Telegram 
-                        </a>
-                    </p>
-                        
-                    <p class=" w3-hover-text-grey w3-show-inline-block w3-margin-right">
-                        <a href="https://t.me/PiedPiperCoinChannel">
-                            <i class="fab fa-telegram-plane"></i>
-                            <br>
-                            Telegram Announcements
-                        </a>
-                    </p>
-            </section>
-    </footer>
-    
-<script src="js/app.js"></script>
+<script src="js/upload.js"></script>
 </body>
 </html>
