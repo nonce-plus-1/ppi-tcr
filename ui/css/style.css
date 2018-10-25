@@ -1894,7 +1894,7 @@ body, html {
     background-color: #C9F308;
     text-shadow: 0 1px 6px #000000;
     box-shadow: 1px 2px 8px #162F14;
-    font-weight: 500;
+    font-weight: 1000;
     font-family: "Roboto Slab", serif;
 }
 
@@ -1904,7 +1904,7 @@ body, html {
     border: 2px solid  #C9F308 !important;
     text-shadow: 0 1px 3px rgb(119, 119, 119);
     box-shadow: 1px 2px 5px rgb(119, 119, 119);
-    font-weight: 500;
+    font-weight: 1000;
     font-family: "Roboto Slab", serif;
     border-radius: 8px;
     /* padding: .75vw 3vw; */
@@ -2152,7 +2152,7 @@ color of base website
       padding: 10px;
       height: 110px;
       font-family: 'Open Sans Condensed', sans-serif;  
-  }
+}
 
 #bidInput
 {
@@ -2164,9 +2164,9 @@ color of base website
 #imageURLDisplay
 {
     text-align: left;
-    padding-left: 30%;
+    padding-left: 10%;
     color: #4a9f35;
-    margin:auto;
+    float: left;
     font-family: 'Open Sans Condensed', sans-serif;  
 }
 
@@ -2174,7 +2174,7 @@ color of base website
 {
     text-align: justify;
     padding-right: 30%;
-    width: 30%;
+    width: 40%;
     color: #0D4400;
     margin:auto;
     font-family: 'Open Sans Condensed', sans-serif;  
@@ -2228,10 +2228,12 @@ color of base website
 
 #urlInput input[type="text"]
 {
-    /*float: center;*/
+    /* float: center; */
     padding: 4px;
     height: 25px;
-    width: 320px;
+    width: 50%;
+    margin-left: 50%;
+    margin-right: 0%;
     border: 1px solid #90e37c;
     border-radius: 4px;
     color: #1B8900;
@@ -2245,6 +2247,7 @@ color of base website
     background: #338520;
     border: 2px solid #90e37c;
     border-radius: 8px;
+    margin-left: 50%;
     padding-left: 20px;
     padding-right: 20px;
     color: white;

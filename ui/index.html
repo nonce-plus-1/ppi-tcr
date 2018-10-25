@@ -29,14 +29,14 @@
 
     <div class="w3-center">
         <h1 class="w3-xxxlarge">MEME BID</h1>
-        <p class="w3-xlarge">This week’s Meme Auction Ends on</p>
-        <p class="w3-xlarge auctionEnd"><span id="auctionCountdownEndDate"></span> 9pm EST</p>
+        <p class="w3-xlarge">Vote on Your Favorite Memes!!</p>
+        <!-- <p class="w3-xlarge auctionEnd"><span id="auctionCountdownEndDate"></span> 9pm EST</p>
         <div class="w3-round-large w3-text-white countdown">
             <span id=auctionCountdownDays></span><span class="w3-tiny">D: </span> 
             <span id=auctionCountdownHours></span><span class="w3-tiny">H: </span> 
             <span id=auctionCountdownMinutes></span><span class="w3-tiny">M: </span>  
             <span id=auctionCountdownSeconds></span><span class="w3-tiny">S </span> 
-        </div>
+        </div> -->
 
         <a href="memeSubmission.html" class="w3-panel">
             <button class="w3-button w3-hover-white w3-ripple w3-round-large ppiCTA">
@@ -50,221 +50,34 @@
 
 
 <article class="listing">
-<div id="container">
+    <div id="container">
+        <div class="memeBits w3-margin-top w3-row w3-container">
+            <div class="memePic w3-col s9 m9 l9">
+                <img src="images/bitdoge.jpg" class="w3-border w3-padding">
+            </div>
+            
+            <section id="spacer"></section>
 
-    <div class="memeBits w3-margin-top w3-row w3-container">
-        <div class="memePic w3-col s9 m9 l9">
-            <img src="images/bitdoge.jpg" class="w3-border w3-padding">
-        </div>
-        
-        <section id="spacer"></section>
+            <!--<input type="image" src="images/vote_up3.png" onMouseOver="this.src='images/vote_up_highlight3.png'" onMouseOut="this.src='images/vote_up3.png'" onclick=""> -->
+            <!-- ******* this is the big button ******* <input type="image" src="images/vote_up3.png" onMouseOver="this.src='images/vote_up_highlight3.png'" onMouseOut="this.src='images/vote_up3.png'" onclick="">  -->
+            <!-- ******* this is the big button ******* <input type="image" src="images/vote_down3.png" onMouseOver="this.src='images/vote_down_highlight3.png'" onMouseOut="this.src='images/vote_down3.png'" onclick=""> -->
+            <button class="w3-button w3-hover-white w3-ripple w3-round-large ppiCTA" onclick="sendUpvotes()">▲</button>
+            <button class="w3-button w3-hover-white w3-ripple w3-round-large ppiCTA" onclick="sendDownvotes()">▼</button>
 
-        <!--<input type="image" src="images/vote_up3.png" onMouseOver="this.src='images/vote_up_highlight3.png'" onMouseOut="this.src='images/vote_up3.png'" onclick=""> -->
-        <!-- ******* this is the big button ******* <input type="image" src="images/vote_up3.png" onMouseOver="this.src='images/vote_up_highlight3.png'" onMouseOut="this.src='images/vote_up3.png'" onclick="">  -->
-        <!-- ******* this is the big button ******* <input type="image" src="images/vote_down3.png" onMouseOver="this.src='images/vote_down_highlight3.png'" onMouseOut="this.src='images/vote_down3.png'" onclick=""> -->
-        <button class="w3-button w3-hover-white w3-ripple w3-round-large ppiCTA" onclick="sendUpvotes()">▲</button>
-        <button class="w3-button w3-hover-white w3-ripple w3-round-large ppiCTA" onclick="sendDownvotes()">▼</button>
-
-        <!-- need an if no amount entered statement -->
-        
-        <div class="w3-medium">
-                (minimum: 50)
-        </div>
-
-        <!--<section id="bigger_spacer"></section>-->
-
-        <div class="w3-large">
-            meme poll ends in: 
-            <span id=pollendtime></span><span class="w3-medium"> days </span>
-        </div>
+            <div class="w3-large">
+                meme poll ends in: 420
+                <span id=pollendtime></span><span class="w3-medium"> days </span>
+            </div>
 
 
-        <div class="w3-large" id="currentTokens">
-            Current Value: 
-            <span id=currentauctionvalue></span><span class="w3-medium"> coins </span>
-        </div>
+            <div class="w3-large" id="currentTokens">
+                Current Value: 1337
+                <span id=currentauctionvalue></span><span class="w3-medium"> tokens </span>
+            </div>
 
         </div>    
-    
-<!--
-            <section id="bigger_spacer"></section>
-        <div class="memeText w3-col s2 m2 l2">
-                <div class="memePic w3-col s9 m9 l9">
-                        <img src="images/developer-doge.jpg" class="w3-border w3-padding">
-                    </div>
-            <button class="w3-button w3-round-large w3-ripple">Bid <span>38</span> PPI</button>
-            <p>Current Bid: <br><span>37 PPI</span></p>
-            <p><span id="bAddress">x0827492</span></p> 
-        </div>
-    </div>    
--->
-
-    <!--
-    <div class="memeBits w3-margin-top w3-row">
-        <div class="memePic w3-col s9 m9 l9">
-            <img src="images/muchFox.jpg" class="w3-border w3-padding">
-=======
->>>>>>> parent of 47df31d... Added dynamic sizing based on amount of listings
-        </div>
-        
-        <div class="memeText w3-col s2 m2 l2">
-            <button class="w3-button w3-round-large w3-ripple">Bid <span>80</span> PPI</button>
-            <p>Current Bid: <br><span>79.8 PPI</span></p>
-            <p><span id="bAddress">x0827492</span></p> 
-        </div>
-    </div>     
-
-    <div class="memeBits w3-margin-top w3-row">
-            <div class="memePic w3-col s9 m9 l9">
-                <img src="images/intense.jpg" class="w3-border w3-padding">
-            </div>
-            
-            <div class="memeText w3-col s2 m2 l2 w3-container">
-                <button class="w3-button w3-round-large w3-ripple">Bid <span>80,000</span> PPI</button>
-                <p>Current Bid:
-                <br><span>79,900 PPI</span></br>
-                <p><span id="bAddress">x0827492</span></p> 
-            </div>
-        </div>  
-        
-        
-    <div class="memeBits w3-margin-top w3-row">
-        <div class="memePic w3-col s9 m9 l9">
-            <img src="images/9bc.jpg" class="w3-border w3-padding">
-        </div>
-        
-        <div class="memeText w3-col s2 m2 l2 w3-container">
-            <button class="w3-button w3-round-large w3-ripple">Bid <span>7</span> PPI</button>
-            <p>Current Bid:
-            <br><span>6 PPI</span></br>
-            <p><span id="bAddress">x0827492</span></p> 
-        </div>
-    </div>  
-
-
-<<<<<<< HEAD
-    <div class="memeBits w3-margin-top w3-row">
-        <div class="memePic w3-col s9 m9 l9">
-            <img src="images/very-hedge-much-stuck-am-shrub-pls-down-wow-2569112.png" class="w3-border w3-padding">
-        </div>
-
-        
-        <div class="memeText w3-col s2 m2 l2 w3-container">
-            <button class="w3-button w3-round-large w3-ripple">Bid <span>30</span> PPI</button>
-            <p>Current Bid:
-            <br><span>29 PPI</span></br>
-            <p><span id="bAddress">x0827492</span></p> 
-        </div>
-    </div>  
-
-    <div class="memeBits w3-margin-top w3-row">
-            <div class="memePic w3-col s9 m9 l9">
-                <img src="images/such-problem-much-fix-very-tech-such-support-wow-2737205.png" class="w3-border w3-padding">
-            </div>
-            
-            <div class="memeText w3-col s2 m2 l2 w3-container">
-                <button class="w3-button w3-round-large w3-ripple">Bid <span>40</span> PPI</button>
-                <p>Current Bid:
-                <br><span>39 PPI</span></br>
-                <p><span id="bAddress">x0827492</span></p> 
-            </div>
-        </div>  
--->
-
-
-        <!--
-        <div class="memeText w3-col s2 m2 l2">
-                <input type="image" src="http://example.com/path/to/image.png" />
-            <button class="w3-button w3-round-large w3-ripple">Bid <span>38</span> PPI</button>
-            <p>Current Bid: <br><span>37 PPI</span></p>
-            <p><span id="bAddress">x0827492</span></p> 
-        </div>
-    </div>    
-
-        <div class="w3-large">
-             days    
-            </div>
-
-        <div class="memeText w3-col s2 m2 l2">
-                <input type="image" src="http://example.com/path/to/image.png" />
-            <button class="w3-button w3-round-large w3-ripple">Bid <span>38</span> PPI</button>
-            <p>Current Bid: <br><span>37 PPI</span></p>
-            <p><span id="bAddress">x0827492</span></p> 
-        </div>
-    </div>    
->>>>>>> parent of 47df31d... Added dynamic sizing based on amount of listings
--->
-
- <!--   
-    <div class="memeBits w3-margin-top w3-row">
-        <div class="memePic w3-col s9 m9 l9">
-            <img src="images/muchFox.jpg" class="w3-border w3-padding">
-        </div>
-        
-        <div class="memeText w3-col s2 m2 l2">
-            <button class="w3-button w3-round-large w3-ripple">Bid <span>80</span> PPI</button>
-            <p>Current Bid: <br><span>79.8 PPI</span></p>
-            <p><span id="bAddress">x0827492</span></p> 
-        </div>
-    </div>     
-
-    <div class="memeBits w3-margin-top w3-row">
-            <div class="memePic w3-col s9 m9 l9">
-                <img src="images/intense.jpg" class="w3-border w3-padding">
-            </div>
-            
-            <div class="memeText w3-col s2 m2 l2 w3-container">
-                <button class="w3-button w3-round-large w3-ripple">Bid <span>80,000</span> PPI</button>
-                <p>Current Bid:
-                <br><span>79,900 PPI</span></br>
-                <p><span id="bAddress">x0827492</span></p> 
-            </div>
-        </div>  
-        
-        
-    <div class="memeBits w3-margin-top w3-row">
-        <div class="memePic w3-col s9 m9 l9">
-            <img src="images/9bc.jpg" class="w3-border w3-padding">
-        </div>
-        
-        <div class="memeText w3-col s2 m2 l2 w3-container">
-            <button class="w3-button w3-round-large w3-ripple">Bid <span>7</span> PPI</button>
-            <p>Current Bid:
-            <br><span>6 PPI</span></br>
-            <p><span id="bAddress">x0827492</span></p> 
-        </div>
-    </div>  
-
-
-    <div class="memeBits w3-margin-top w3-row">
-        <div class="memePic w3-col s9 m9 l9">
-            <img src="images/very-hedge-much-stuck-am-shrub-pls-down-wow-2569112.png" class="w3-border w3-padding">
-        </div>
-
-        
-        <div class="memeText w3-col s2 m2 l2 w3-container">
-            <button class="w3-button w3-round-large w3-ripple">Bid <span>30</span> PPI</button>
-            <p>Current Bid:
-            <br><span>29 PPI</span></br>
-            <p><span id="bAddress">x0827492</span></p> 
-        </div>
-    </div>  
-
-    <div class="memeBits w3-margin-top w3-row">
-            <div class="memePic w3-col s9 m9 l9">
-                <img src="images/such-problem-much-fix-very-tech-such-support-wow-2737205.png" class="w3-border w3-padding">
-            </div>
-            
-            <div class="memeText w3-col s2 m2 l2 w3-container">
-                <button class="w3-button w3-round-large w3-ripple">Bid <span>40</span> PPI</button>
-                <p>Current Bid:
-                <br><span>39 PPI</span></br>
-                <p><span id="bAddress">x0827492</span></p> 
-            </div>
-        </div>  
--->
-<section id="bigger_spacer"></section>   
-</div>
+        <section id="bigger_spacer"></section>   
+    </div>
 </article>
 
 
