@@ -2,6 +2,7 @@
 const registryContractABI = [ABI];
 const contractAddress = `0x...`;
 const Web3 = require('web3');
+const schedule = require('node-schedule');
 let registryContractInstance, account, web3;
 
 // const PocketProvider = require('web3-pocket-provider');
@@ -146,3 +147,13 @@ function addElement(container_ID, i, submission) {
     "<div class='w3-large'>meme poll ends in:"+time.getTime()-time.getTime(submission.expirationTime)+"</div><div class='w3-large'>days</div><div class='w3-large' id='currentTokens'>Current Value:"+submission.totalTokens+"</div></div>";
     container.appendChild(subElement);
 }
+
+
+let timedCountdown = schedule.scheduleJob('0 0 * * *', function(){
+    registryContractInstance.calculateVotes(account, function(error, transactionHash){
+        if (!error){
+            console.log(transactionHash);
+        } else
+            console.log(error);
+    })
+});
