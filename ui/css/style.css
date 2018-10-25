@@ -2107,7 +2107,7 @@ vote_button
     cursor: pointer;  
 }
 
-.listing vote_button:hover
+.listing button:hover
 {    
     background-color: #144A2E;
     border-width: 2px;
@@ -2158,8 +2158,8 @@ color of base website
 
 #imageURLDisplay
 {
-    padding-left: 15%;
     text-align: left;
+    padding-left: 30%;
     color: #4a9f35;
     margin:auto;
     font-family: 'Open Sans Condensed', sans-serif;  
@@ -2180,7 +2180,7 @@ color of base website
 
 #amountField
 {
-    text-align: center;
+    text-align: left;
     padding-right: 30%;
     width: 75px;
     color: #0D4400;
@@ -2193,7 +2193,7 @@ color of base website
 
 #amountField2
 {
-    text-align: center;
+    text-align: left;
     width: 25px;
     color: #0D4400;
     margin: auto;
