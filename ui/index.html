@@ -48,15 +48,10 @@
     </div>        
 </header>
 
+
 <article class="listing">
 <div id="container">
-    
-<article class="w3-panel", id = "listingpanel">
 
-
-<article class="w3-panel">
-
-<article class="w3-panel">
     <div class="memeBits w3-margin-top w3-row w3-container">
         <div class="memePic w3-col s9 m9 l9">
             <img src="images/bitdoge.jpg" class="w3-border w3-padding">
@@ -66,15 +61,10 @@
 
         <!--<input type="image" src="images/vote_up3.png" onMouseOver="this.src='images/vote_up_highlight3.png'" onMouseOut="this.src='images/vote_up3.png'" onclick=""> -->
         <!-- ******* this is the big button ******* <input type="image" src="images/vote_up3.png" onMouseOver="this.src='images/vote_up_highlight3.png'" onMouseOut="this.src='images/vote_up3.png'" onclick="">  -->
-
+        <!-- ******* this is the big button ******* <input type="image" src="images/vote_down3.png" onMouseOver="this.src='images/vote_down_highlight3.png'" onMouseOut="this.src='images/vote_down3.png'" onclick=""> -->
         <button class="w3-button w3-hover-white w3-ripple w3-round-large ppiCTA" onclick="sendUpvotes()">▲</button>
         <button class="w3-button w3-hover-white w3-ripple w3-round-large ppiCTA" onclick="sendDownvotes()">▼</button>
 
-
-       <!-- ******* this is the big button ******* <input type="image" src="images/vote_down3.png" onMouseOver="this.src='images/vote_down_highlight3.png'" onMouseOut="this.src='images/vote_down3.png'" onclick=""> -->
-
-        <input id="amountField" type="text" placeholder="enter bid amount">
-        <input id="amountField" type="text" placeholder="enter bid amount">
         <!-- need an if no amount entered statement -->
         
         <div class="w3-medium">
@@ -85,21 +75,17 @@
 
         <div class="w3-large">
             meme poll ends in: 
+            <span id=pollendtime></span><span class="w3-medium"> days </span>
         </div>
 
-        <div class="w3-large">
-             days    
-            </div>
 
-            <div class="w3-large" id="currentTokens">
-                Current Value: 25061
-            </div>
+        <div class="w3-large" id="currentTokens">
+            Current Value: 
+            <span id=currentauctionvalue></span><span class="w3-medium"> coins </span>
+        </div>
+
         </div>    
     
-            <div class="w3-large">
-                 days    
-                </div>        
- 
 <!--
             <section id="bigger_spacer"></section>
         <div class="memeText w3-col s2 m2 l2">

@@ -2126,8 +2126,6 @@ vote_button
 
 
 
-
-
 /* ------Upload Section */
 
   #drop-area.highlight {
@@ -2155,6 +2153,13 @@ color of base website
       height: 110px;
       font-family: 'Open Sans Condensed', sans-serif;  
   }
+
+#bidInput
+{
+    background: #FFFFFF;
+    padding: 10px;
+    font-family: 'Open Sans Condensed', sans-serif;  
+}
 
 #imageURLDisplay
 {
@@ -2201,6 +2206,16 @@ color of base website
     border: 2px solid green;
     border-radius: 3px;
     vertical-align: middle;
+}
+
+#amountField3
+{
+    text-align: left;
+    width: 25px;
+    color: #0D4400;
+    font-family: 'Open Sans Condensed', sans-serif;  
+    border: 2px solid green;
+    border-radius: 3px;
 }
 
 #urlInput form
