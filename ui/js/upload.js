@@ -71,15 +71,23 @@
     }
 
     function sendListing(){
-        if(document.getElementById('URLIDHERE').value !== undefined && document.getElementById('AMOUNTIDHERE').value !== undefined){
-            registryContractInstance.addSubmission(document.getElementById('URLIDHERE').value, document.getElementById('AMOUNTIDHERE').value, function(error, transactionHash){
+        if(document.getElementById('urlField').value !== undefined && document.getElementById('minDeposit').value !== undefined && document.getElementById('AMOUNTIDHERE').value >= document.getElementById('minDeposit').value){
+            registryContractInstance.addSubmission(document.getElementById('urlField').value, document.getElementById('amountField').value, function(error, transactionHash){
                 if(error){
                     console.log(transactionHash);
                 }
             });
-            document.getElementById('AMOUNTIDHERE').value = '';
-            document.getElementById('URLIDHERE').value = '';
+            document.getElementById('amountField').value = '';
+            document.getElementById('urlField').value = '';
         }
         else
-            console.log("Error: One of two fields not filled out");
+            console.log("Error: One of two fields not filled out or amount does not meet minimum.");
+    }
+    function getMinDeposit(){
+        registryContractInstance.getMinDeposit(account, function(error, result){
+            if (!error){
+                document.getElementById('minDeposit').value = 'Minimum Deposit: ' + result;
+            } else
+                console.log(error);
+        })
     }

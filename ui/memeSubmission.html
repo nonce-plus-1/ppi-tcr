@@ -50,12 +50,12 @@
     <section id="urlInput">
         <h1 id="imageURLDisplay">please enter your image URL.</h1>
         <form>
-            <input id="amountField" type="text" placeholder="maximum 250 characters...">
-            <!--<section id="spacer"></section>-->
-            <input id="amountField" type="text" placeholder="maximum 250 characters...">
-            <button id="userSubmit" type="button" class="submitButton" onclick="sendWhatever()">submit</button>
+            <input id="urlFieldFake" type="text" placeholder="maximum 150 characters...">
+            <input id="urlField" type="text" placeholder="maximum 150 characters...">
             <section id="tiny_spacer"></section>
-            <input id="amountField2" type="text" placeholder="bid amount...">
+            <input id="amountField" type="text" placeholder="bid amount...">
+            <section id="tiny_spacer"></section>
+            <button id="userSubmit" type="button" class="submitButton" onclick="sendListing()">submit</button>
         </form>
     </section>
 
@@ -117,10 +117,10 @@
     <div>
        <div id="drop-area"> 
         <form class="w3-center" method="post">
-            <!-- <label class="nameInputLabel">MEME TITLE: </label> 
+            <label class="nameInputLabel">MEME TITLE: </label> 
             <input class="w3-input w3-hover-light-gray w3-show-inline-block" type="text" style="width: 40%;"> -->
 <!--        <div class="uploadBorder" id="drop-area">
-                <!-- <p>DRAG AND DROP</p> -->
+                <p>DRAG AND DROP</p> -->
                 <!-- <p>OR</p> -->
 <!--            <div>
                     <p>
