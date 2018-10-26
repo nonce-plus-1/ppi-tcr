@@ -2151,8 +2151,9 @@ color of base website
   {
       background: #144A2E;
       padding: 10px;
-      height: 130px;
+      height: 220px;
       font-family: 'Open Sans Condensed', sans-serif;  
+      display: center;
 }
 
 #bidInput
@@ -2163,6 +2164,13 @@ color of base website
 }
 
 #imageURLDisplay
+{
+    text-align: center;
+    color: #4a9f35;
+    font-family: 'Open Sans Condensed', sans-serif;  
+}
+
+#imageURLDisplayextra
 {
     text-align: left;
     padding-left: 10%;
@@ -2175,20 +2183,30 @@ color of base website
 {
     text-align: justify;
     padding-right: 30%;
-    width: 40%;
+    width: 50%;
     color: #0D4400;
     margin:auto;
     font-family: 'Open Sans Condensed', sans-serif;  
     border: 2px solid green;
     border-radius: 3px;
+}
+
+#urlInputField
+{
+    text-align: justify;
+    width: 40%;
+    color: #0D4400;
+    border: 2px green;
+    margin: auto;
     display: center;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 #amountField
 {
-    text-align: left;
+
     padding-right: 30%;
-    width: 75px;
+    width: 100px;
     color: #0D4400;
     margin:auto;
     font-family: 'Open Sans Condensed', sans-serif;  
@@ -2222,7 +2240,6 @@ color of base website
 #urlInput form
 {
     padding-right: 30%;
-    float: right;
     margin-top: -25px;
     font-family: 'Open Sans Condensed', sans-serif;  
 }
@@ -2232,7 +2249,7 @@ color of base website
     /* float: center; */
     padding: 4px;
     height: 25px;
-    width: 50%;
+    /*width: 50%;*/
     margin-left: 50%;
     margin-right: 0%;
     border: 1px solid #90e37c;
