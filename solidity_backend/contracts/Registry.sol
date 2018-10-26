@@ -1,5 +1,5 @@
 pragma solidity experimental ABIEncoderV2;
-import "http://github.com/ConsenSys/Tokens/contracts/eip20/EIP20Interface.sol";
+import "./EIP20Interface.sol";
 
 contract Registry {
     event _UpvoteCast(address upvoter, uint amount);
