@@ -1967,8 +1967,9 @@ article{
 }
 
 .memePic img{
-    float: right;
-    margin-right: 7%;
+    float: left;
+    margin-right: 2%;
+    margin-left: 5%;
     max-width: 80%;
     height: auto;
 }
@@ -2063,12 +2064,13 @@ article{
 
 .listing
 {
+    float: center;
     max-width: 100%;
     height: auto;
 }
 
 .listing-img{
-    float: right;
+    float: center;
     margin-right: 3%;
     max-width: 80%;
     height: auto;
@@ -2149,7 +2151,7 @@ color of base website
   {
       background: #144A2E;
       padding: 10px;
-      height: 110px;
+      height: 130px;
       font-family: 'Open Sans Condensed', sans-serif;  
 }
 
@@ -2285,6 +2287,11 @@ color of base website
 #bigboy_spacer
 {
     height: 200px;
+}
+
+#biggboy_spacer
+{
+    height: 300px;
 }
 
 #biggerboy_spacer
