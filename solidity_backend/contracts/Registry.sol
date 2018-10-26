@@ -1,5 +1,8 @@
-pragma solidity experimental ABIEncoderV2;
-import "./EIP20Interface.sol";
+pragma solidity ^0.4.21;
+
+//enable struct returns
+pragma experimental ABIEncoderV2;
+import "http://github.com/ConsenSys/Tokens/contracts/eip20/EIP20Interface.sol";
 
 contract Registry {
     event _UpvoteCast(address upvoter, uint amount);
@@ -87,8 +90,8 @@ contract Registry {
             submissionsMapping[listingHash].balances[submissionsMapping[listingHash].promoters[i]] = 0;
             token.transfer(submissionsMapping[listingHash].promoters[i], share);
         }
-        for (uint i = 0 ; i < submissionsMapping[listingHash].challengers.length; i++) {
-            uint share = submissionsMapping[listingHash].balances[submissionsMapping[listingHash].challengers[i]];
+        for (i = 0 ; i < submissionsMapping[listingHash].challengers.length; i++) {
+            share = submissionsMapping[listingHash].balances[submissionsMapping[listingHash].challengers[i]];
             submissionsMapping[listingHash].balances[submissionsMapping[listingHash].challengers[i]] = 0;
             token.transfer(submissionsMapping[listingHash].challengers[i], submissionsMapping[listingHash].balances[submissionsMapping[listingHash].challengers[i]]);
         }

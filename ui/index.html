@@ -30,26 +30,17 @@
     <div class="w3-center">
         <h1 class="w3-xxxlarge">MEME BID</h1>
         <p class="w3-xlarge">VOTE ON YOUR FAVS</p>
-        <!-- <p class="w3-xlarge auctionEnd"><span id="auctionCountdownEndDate"></span> 9pm EST</p>
-        <div class="w3-round-large w3-text-white countdown">
-            <span id=auctionCountdownDays></span><span class="w3-tiny">D: </span> 
-            <span id=auctionCountdownHours></span><span class="w3-tiny">H: </span> 
-            <span id=auctionCountdownMinutes></span><span class="w3-tiny">M: </span>  
-            <span id=auctionCountdownSeconds></span><span class="w3-tiny">S </span> 
-        </div> -->
 
         <a href="memeSubmission.html" class="w3-panel">
             <button class="w3-button w3-hover-white w3-ripple w3-round-large ppiCTA">
-                <!-- <a href="memeSubmission.html"> -->
                     Submit Meme
-                <!-- </a> -->
             </button>
         </a>
     </div>        
 </header>
 
 
-<section class="w3-card-4 w3-round-xlarge uploadSection w3-panel w3-white">
+<section id = "listingPanel" class="w3-card-4 w3-round-xlarge uploadSection w3-panel w3-white">
 
     <article class="listing">
 
@@ -61,23 +52,17 @@
         
         <section id="spacer"></section>
 
-        <!--<input type="image" src="images/vote_up3.png" onMouseOver="this.src='images/vote_up_highlight3.png'" onMouseOut="this.src='images/vote_up3.png'" onclick=""> -->
-        <!-- ******* this is the big button ******* <input type="image" src="images/vote_up3.png" onMouseOver="this.src='images/vote_up_highlight3.png'" onMouseOut="this.src='images/vote_up3.png'" onclick="">  -->
-        <!-- ******* this is the big button ******* <input type="image" src="images/vote_down3.png" onMouseOver="this.src='images/vote_down_highlight3.png'" onMouseOut="this.src='images/vote_down3.png'" onclick=""> -->
         <button class="w3-button w3-hover-white w3-ripple w3-round-large ppiCTA" onclick="sendUpvotes()">▲</button>
         <button class="w3-button w3-hover-white w3-ripple w3-round-large ppiCTA" onclick="sendDownvotes()">▼</button>
 
         <!-- ignore this first one, for some reason it's acting up without this here-->
-        <span style="white-space:nowrap">
-            <label for="id1"> </label>
-            <input type="text" id="id1"/>
-        </span>
+        <span style="white-space:nowrap"></span>
 
         <section id="tiny_spacer"></section>
 
         <span style="white-space:nowrap">
-            <label for="id2">enter bid amount:</label>
-            <input type="text" id="id2" required="required" placeholder="minimum 50 bits"/>
+            <label for="amountFieldBeta">enter bid amount:</label>
+            <input type="text" id="amountFieldBeta" required="required" placeholder="# of tokens"/>
         </span>
 
         <div class="w3-large">

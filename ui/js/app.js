@@ -1,6 +1,6 @@
 //Importing Contract
-const registryContractABI = [ABI];
-const contractAddress = `0x...`;
+const registryContractABI = [{"constant":true,"inputs":[],"name":"getMinDeposit","outputs":[{"name":"amount","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_token","type":"address"}],"name":"init","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"listingHash","type":"bytes"},{"name":"amount","type":"uint256"}],"name":"downvote","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"minDeposit","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"listingHash","type":"bytes"},{"name":"amount","type":"uint256"}],"name":"upvote","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"listingHash","type":"bytes"},{"name":"g","type":"uint256"}],"name":"removeListing","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"submissionsArray","outputs":[{"name":"","type":"bytes"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"Reigistry","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"hashSearched","type":"bytes"}],"name":"getListingData","outputs":[{"name":"data","type":"uint256[3]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"givenDataHash","type":"bytes"},{"name":"amount","type":"uint256"}],"name":"addSubmission","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[],"name":"calculateVotes","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"token","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getAllHashes","outputs":[{"name":"allListings","type":"bytes[]"}],"payable":false,"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"upvoter","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"_UpvoteCast","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"downvoter","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"_DownvoteCast","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingHash","type":"bytes"}],"name":"_SubmissionPassed","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingHash","type":"bytes"}],"name":"_SubmissionDenied","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingHash","type":"bytes"}],"name":"_ListingSubmitted","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingHash","type":"bytes"}],"name":"_ListingRemoved","type":"event"}];
+const contractAddress = `0xc0f1dbd1f6cdb7a6e8f2d8002ef7c7e223c568d8`;
 const Web3 = require('web3');
 const schedule = require('node-schedule');
 let registryContractInstance, account, web3;
@@ -22,6 +22,7 @@ let registryContractInstance, account, web3;
 //     // Set the timeout in ms, set to 0 for no timeout
 //     timeout: 0
 // }
+setup();
 
 function setup(){
     if (typeof web3 !== 'undefined') {
@@ -44,7 +45,7 @@ function setup(){
 }
 
 // Fake Auction Count Down
-let dayAuctionEnds = "Sep 5, 2018";
+let dayAuctionEnds = "Dec 5, 2018";
 // let dayAuctionEnds = "Sep 5, 2018 15:37:25";
 let countdownDate = new Date(dayAuctionEnds).getTime();
 
@@ -131,23 +132,27 @@ function getSubmissions(){
 //Dynamically display all submissions on site
 function displaySubmissions(allSubmissions){
     for(let i = 0 ; i < allSubmissions.length ; i++){
-        addElement('listingpanel', i, allSubmissions[i]);
+        addElement('listingPanel', i, allSubmissions[i]);
     }
 }
 
 function addElement(container_ID, i, submission) {
     let time = new Date();
     // Adds an element to the document
-    container = document.getElementById(contaner_id);
-    let subElement = "<div class='memeBits w3-margin-top w3-row w3-container'" +
-    "<div class='listing w3-col s9 m9 l9'><img src='"+submission.entry+"' class='w3-border w3-padding'></div><section id='spacer'></section>" +
-    "<input type='image' src='images/vote_up3.png' onMouseOver='this.src='images/vote_up_highlight3.png'' onMouseOut='this.src='images/vote_up3.png'' onclick='"+submission.upvote('amountField'+i)+"'>" +
-    "<section id='tinyer_spacer'></section><input type='image' src='images/vote_down3.png' onMouseOver='this.src='images/vote_down_highlight3.png'' onMouseOut='this.src='images/vote_down3.png'' onclick='"+submission.downvote('amountField'+i)+"'>" +
-    "<section id='tiny_space'></section><input id='amountField"+i+"' type='text' placeholder='enter amount...'><section id='bigger_spacer'></section>"+
-    "<div class='w3-large'>meme poll ends in:"+time.getTime()-time.getTime(submission.expirationTime)+"</div><div class='w3-large'>days</div><div class='w3-large' id='currentTokens'>Current Value:"+submission.totalTokens+"</div></div>";
+    container = document.getElementById(container_ID);
+
+    let subElement = "<article class='listing'><section id='spacer'></section>" +
+    "<div class='memePic img'><img src='" + submission.entry + "' class='w3-border w3-padding-small'></div><section id='spacer'></section>"+
+    "<button class='w3-button w3-hover-white w3-ripple w3-round-large ppiCTA' onclick='"+submission.upvote('amountField'+i)+"'>▲</button>"+
+    "<button class='w3-button w3-hover-white w3-ripple w3-round-large ppiCTA' onclick='"+submission.downvote('amountField'+i)+"'>▼</button>"+
+    "<span style='white-space:nowrap'></span><section id='tiny_spacer'></section>"+
+    "<span style='white-space:nowrap'><label for='amountField" + i + "'>enter bid amount:</label><input type='text' id='amountField" + i + "' required='required' placeholder='# of tokens'/></span>"+
+    "<div class='w3-large'>meme poll ends in:<span id='pollendtime'>"+time.getTime()-time.getTime(submission.expirationTime)+"</span></div>"+
+    "<div class='w3-large' id='currentTokens'>Current Value:<span id='currentauctionvalue'>"+submission.totalTokens+"</span><span class='w3-medium'> coins </span></div>"+
+    "<section id='biggboy_spacer'></section></article>";
+
     container.appendChild(subElement);
 }
-
 
 let timedCountdown = schedule.scheduleJob('0 0 * * *', function(){
     registryContractInstance.calculateVotes(account, function(error, transactionHash){
