@@ -1,28 +1,39 @@
 //Importing Contract
 const registryContractABI = [ABI];
 const contractAddress = `0x...`;
-const PocketProvider = require('web3-pocket-provider');
 const Web3 = require('web3');
-let registryContractInstance;
-let account, web3, pocketProvider;
+const schedule = require('node-schedule');
+let registryContractInstance, account, web3;
+
+// const PocketProvider = require('web3-pocket-provider');
+// let pocketProvider;
+
+// var transactionSigner = {
+//     hasAddress: function(address, callback) {
+//         // insert your implementation
+//     },
+//     signTransaction: function(txParams, callback) {
+//         // insert your implementation
+//     }
+// };
+// var options = {
+//     // Connect to the Rinkeby chain
+//     networkId: '4',
+//     // Set the timeout in ms, set to 0 for no timeout
+//     timeout: 0
+// }
 
 function setup(){
-    var transactionSigner = {
-        hasAddress: function(address, callback) {
-            // insert your implementation
-        },
-        signTransaction: function(txParams, callback) {
-            // insert your implementation
-        }
-    };
-    var options = {
-        // Connect to the Rinkeby chain
-        networkId: '4',
-        // Set the timeout in ms, set to 0 for no timeout
-        timeout: 0
-    }
-    pocketProvider = new PocketProvider('https://ethereum.pokt.network', transactionSigner, options);
-    web3 = new Web3(pocketProvider);
+    if (typeof web3 !== 'undefined') {
+        // Use Mist/MetaMask's provider
+        web3 = new Web3(web3.currentProvider);
+      } else {
+        alert('Install MetaMask for proper site functionality at Metamask.io');
+        // fallback 
+        web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+      }
+    // pocketProvider = new PocketProvider('https://ethereum.pokt.network', transactionSigner, options);
+    // web3 = new Web3(pocketProvider);
     console.log(web3.eth.accounts);
     account = web3.eth.accounts[0];
     
@@ -136,3 +147,13 @@ function addElement(container_ID, i, submission) {
     "<div class='w3-large'>meme poll ends in:"+time.getTime()-time.getTime(submission.expirationTime)+"</div><div class='w3-large'>days</div><div class='w3-large' id='currentTokens'>Current Value:"+submission.totalTokens+"</div></div>";
     container.appendChild(subElement);
 }
+
+
+let timedCountdown = schedule.scheduleJob('0 0 * * *', function(){
+    registryContractInstance.calculateVotes(account, function(error, transactionHash){
+        if (!error){
+            console.log(transactionHash);
+        } else
+            console.log(error);
+    })
+});
