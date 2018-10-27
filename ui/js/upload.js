@@ -82,12 +82,17 @@ if(number < 1024) {
 }
 
 function sendListing(){
-    if(document.getElementById('urlField').value !== undefined && document.getElementById('minDeposit').value !== undefined && document.getElementById('AMOUNTIDHERE').value >= document.getElementById('minDeposit').value){
-        registryContractInstance.addSubmission(document.getElementById('urlField').value, document.getElementById('amountField').value, function(error, transactionHash){
+    let url = document.getElementById('urlField').value
+    if(url !== undefined && document.getElementById('amountField').value >= document.getElementById('minDeposit').value){
+        registryContractInstance.addSubmission(url, document.getElementById('amountField').value, function(error, transactionHash){
             if(error){
                 console.log(transactionHash);
             }
         });
+        let image = document.createElement('img');
+        image.className = "w3-image w3-center";
+        image.src = window.URL.createObjectURL(url);
+        document.getElementById('bigboy_spacer').appendChild(image);
         document.getElementById('amountField').value = '';
         document.getElementById('urlField').value = '';
     }
