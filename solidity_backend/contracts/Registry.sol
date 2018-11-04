@@ -36,6 +36,7 @@ contract Registry {
     function Reigistry() public {
         owner = msg.sender;
         minDeposit = 50;
+        init(0x5a3c9a1725aa82690ee0959c89abe96fd1b527ee);
     }
     
     //Modifiers
