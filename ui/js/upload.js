@@ -2,25 +2,14 @@ const registryContractABI = [{"constant":true,"inputs":[],"name":"getMinDeposit"
 const contractAddress = `0x15f2c7c39214fd0320ef90c9c455fed64208cfaa`;
 let registryContractInstance;
 let account;
-let minDeposit;
-// setupSubmission();
-
-// function setupSubmission(){
-//     if (typeof web3 !== 'undefined') {
-//         // Use Mist/MetaMask's provider
-//         web3 = new Web3(web3.currentProvider);
-//     } else {
-//         alert('Install MetaMask for proper site functionality at Metamask.io');
-//         // fallback 
-//         web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-//     }
-// }
+let minDeposit = getMinDeposit();
 
 function sendListing(){
     let url = document.getElementById('urlField').value
+    submissionLinks.push(url);
     let amount = document.getElementById('amountField').value
     if(url !== undefined && amount >= minDeposit){
-        registryContractInstance.addSubmission(url, amount, function(error, transactionHash){
+        registryContractInstance.addSubmission(submissionLinks.length, amount, function(error, transactionHash){
             if(error){
                 console.log(transactionHash);
             }

@@ -9312,68 +9312,11 @@ const registryContractABI = [{"constant":true,"inputs":[],"name":"getMinDeposit"
 const contractAddress = `0x15f2c7c39214fd0320ef90c9c455fed64208cfaa`;
 const schedule = require('node-schedule');
 let registryContractInstance, account, web3;
+~z9+++
 
-// const PocketProvider = require('web3-pocket-provider');
-// let pocketProvider;
 
-// var transactionSigner = {
-//     hasAddress: function(address, callback) {
-//         // insert your implementation
-//     },
-//     signTransaction: function(txParams, callback) {
-//         // insert your implementation
-//     }
-// };
-// var options = {
-//     // Connect to the Rinkeby chain
-//     networkId: '4',
-//     // Set the timeout in ms, set to 0 for no timeout
-//     timeout: 0
-// }
-// setup();
 
-// function setup(){
-//     if (typeof web3 !== 'undefined') {
-//         // Use Mist/MetaMask's provider
-//         web3 = new Web3(web3.currentProvider);
-//       } else {
-//         alert('Install MetaMask for proper site functionality at Metamask.io');
-//         // fallback 
-//         web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-//       }
-//     // pocketProvider = new PocketProvider('https://ethereum.pokt.network', transactionSigner, options);
-//     // web3 = new Web3(pocketProvider);
-    
-// }
 
-// // Fake Auction Count Down
-// let dayAuctionEnds = "Dec 5, 2018";
-// // let dayAuctionEnds = "Sep 5, 2018 15:37:25";
-// let countdownDate = new Date(dayAuctionEnds).getTime();
-
-// // Update the count down every 1 second
-// let timerCountdown = setInterval(function() {
-//     let currentTime = new Date().getTime();
-//     let countdown = countdownDate - currentTime;
-    
-//     let daysLeft = Math.floor(countdown / (1000 * 60 * 60 * 24));
-//     let hoursLeft = Math.floor((countdown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-//     let minutesLeft = Math.floor((countdown % (1000 * 60 * 60)) / (1000 * 60));
-//     let secondsLeft = Math.floor((countdown % (1000 * 60)) / 1000);
-    
-//     document.getElementById("auctionCountdownDays").innerHTML = daysLeft;
-//     document.getElementById("auctionCountdownHours").innerHTML = hoursLeft;
-//     document.getElementById("auctionCountdownMinutes").innerHTML = minutesLeft;
-//     document.getElementById("auctionCountdownSeconds").innerHTML = secondsLeft;
-    
-    
-//     // If the count down is over, write some text 
-//     if (countdown < 0) {
-//         clearInterval(timerCountdown);
-//     }
-// }, 1000);
-
-// document.getElementById("auctionCountdownEndDate").innerHTML = dayAuctionEnds;
 
 function getSubmissions(){
     registryContractInstance.getAllHashes(account, function(error, result){
