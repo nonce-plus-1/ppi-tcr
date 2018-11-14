@@ -9391,7 +9391,7 @@ let timedCountdown = schedule.scheduleJob('0 0 * * *', function(){
     })
 });
 
-function removeListing(index){
+window.removeListing = function(index){
     registryContractInstance.removeListing(index, function(error,result){
         if (!error){
             submissionLinks[index] = 0;
@@ -9400,22 +9400,23 @@ function removeListing(index){
     });
 }
 
-function sendListing(){
+window.sendListing = function(){
     let url = document.getElementById('urlField').value
     submissionLinks.push(url);
     let amount = document.getElementById('amountField').value
     if(url !== undefined && amount >= minDeposit){
-        registryContractInstance.addSubmission(submissionLinks.length, amount, function(error, transactionHash){
-            if(error){
-                console.log(transactionHash);
-            }
-        });
         let image = document.createElement('img');
         image.className = "w3-image w3-center";
         image.src = url;
         document.getElementById('formy').appendChild(image);
         document.getElementById('amountField').value = '';
         document.getElementById('urlField').value = '';
+        
+        registryContractInstance.addSubmission(submissionLinks.length-1, amount, function(error, transactionHash){
+            if(error){
+                console.log(transactionHash);
+            }
+        });
     }
     else
         console.log("Error: One of two fields not filled out or amount does not meet minimum.");
@@ -9429,6 +9430,7 @@ function getMinDeposit(){
             console.log(error);
             minDeposit = 50;
         }
+        console.log('Minimum = ' + minDeposit);
     })
 }
 
