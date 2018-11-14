@@ -46,23 +46,23 @@ contract Registry {
     
     //Modifiers
     modifier submitterOnly (Submission memory sub) {
-        require(msg.sender == sub.submitter || msg.sender == owner, "Invalid Credentials");
+        require(msg.sender == sub.submitter || msg.sender == owner);
         _;
     }
     
     modifier ownerOnly {
-        require(msg.sender == owner, "You are not the owner.");
+        require(msg.sender == owner);
         _;
     }
 
     modifier timeTested (Submission memory sub) {
-        require(sub.expirationTime < now, "Expiration time has passed.");
+        require(sub.expirationTime < now);
         _;
     }
     
-    function addSubmission(uint memory givenDataIndex, uint amount) public payable {
+    function addSubmission(uint givenDataIndex, uint amount) public payable {
         //Validate that the submitter has met the minimum deposit and that they aren't submitting a previously used answer
-        require(amount >= minDeposit, "Minimum Deposit not met");
+        require(amount >= minDeposit);
         token.transferFrom(msg.sender, address(this), amount);
         
         //set exipration after one week (could make adjustable)
@@ -77,17 +77,16 @@ contract Registry {
         submissionsMapping[givenDataIndex] = newSub;
         submissionsMapping[givenDataIndex].promoters.push(msg.sender);
         submissionsMapping[givenDataIndex].balances[msg.sender] = amount;
-        emit _ListingSubmitted(givenDataIndex);
     }
     
-    function upvote(uint memory listingIndex, uint amount) public timeTested(submissionsMapping[listingIndex]) payable {
+    function upvote(uint listingIndex, uint amount) public timeTested(submissionsMapping[listingIndex]) payable {
         token.transferFrom(msg.sender, address(this), amount);
         submissionsMapping[listingIndex].promoters.push(msg.sender);
         submissionsMapping[listingIndex].balances[msg.sender] += amount;
         emit _UpvoteCast(msg.sender, amount);
     }
 
-    function downvote(uint memory listingIndex, uint amount) public timeTested(submissionsMapping[listingIndex]) payable {
+    function downvote(uint listingIndex, uint amount) public timeTested(submissionsMapping[listingIndex]) payable {
         token.transferFrom(msg.sender, address(this), amount);
         submissionsMapping[listingIndex].challengers.push(msg.sender);
         submissionsMapping[listingIndex].balances[msg.sender] += amount;
@@ -109,7 +108,7 @@ contract Registry {
         }
     }
     
-    function submissionPublish(uint memory listingIndex) internal {
+    function submissionPublish(uint listingIndex) internal {
         for (uint i = 0 ; i < submissionsMapping[listingIndex].promoters.length ; i++) {
             uint ratio = ((submissionsMapping[listingIndex].balances[submissionsMapping[listingIndex].promoters[i]]*100) / (submissionsMapping[listingIndex].upvoteTotal*100));
             uint amountWon = (ratio*(submissionsMapping[listingIndex].downvoteTotal*100));
@@ -121,7 +120,7 @@ contract Registry {
         emit _SubmissionPassed(submissionsMapping[listingIndex].submittedDataIndex);
     }
     
-    function submissionReject(uint memory listingIndex) internal {
+    function submissionReject(uint listingIndex) internal {
         for (uint i = 0 ; i < submissionsMapping[listingIndex].challengers.length ; i++) {
             uint ratio = ((submissionsMapping[listingIndex].balances[submissionsMapping[listingIndex].challengers[i]]*100) / (submissionsMapping[listingIndex].downvoteTotal*100));
             uint amountWon = (ratio*(submissionsMapping[listingIndex].upvoteTotal*100));
@@ -132,7 +131,7 @@ contract Registry {
         emit _SubmissionDenied(submissionsMapping[listingIndex].submittedDataIndex);
     }
 
-    function removeListing(uint memory listingIndex) public submitterOnly(submissionsMapping[listingIndex]) timeTested(submissionsMapping[listingIndex]) returns(bool){
+    function removeListing(uint listingIndex) public submitterOnly(submissionsMapping[listingIndex]) timeTested(submissionsMapping[listingIndex]) returns(bool removed){
         for (uint i = 0 ; i < submissionsMapping[listingIndex].promoters.length ; i++) {
             uint share = submissionsMapping[listingIndex].balances[submissionsMapping[listingIndex].promoters[i]];
             submissionsMapping[listingIndex].balances[submissionsMapping[listingIndex].promoters[i]] = 0;
@@ -143,17 +142,17 @@ contract Registry {
             submissionsMapping[listingIndex].balances[submissionsMapping[listingIndex].challengers[i]] = 0;
             token.transfer(submissionsMapping[listingIndex].challengers[i], submissionsMapping[listingIndex].balances[submissionsMapping[listingIndex].challengers[i]]);
         }
-        delete submissionsArray[listingIndex];
+        submissionsArray[listingIndex]=0;
         emit _ListingRemoved(submissionsMapping[listingIndex].submittedDataIndex);
         return true;
     }
 
-    function getExpirationTime(uint givenDataIndex) public view returns(uint memory expirationTime){
-        return (submissionsMapping[hashSearched].expirationTime);
+    function getExpirationTime(uint givenDataIndex) public view returns(uint expirationTime){
+        return (submissionsMapping[givenDataIndex].expirationTime);
     }
 
-    function getTotalVotes(uint givenDataIndex) public view returns(uint memory voteTotal){
-        return (submissionsMapping[hashSearched].upvoteTotal + submissionsMapping[hashSearched].downvoteTotal);
+    function getTotalVotes(uint givenDataIndex) public view returns(uint voteTotal){
+        return (submissionsMapping[givenDataIndex].upvoteTotal + submissionsMapping[givenDataIndex].downvoteTotal);
     }
     
     function getMinDeposit() public view returns(uint amount) {

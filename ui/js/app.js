@@ -1,14 +1,14 @@
-const registryContractABI = [{"constant":true,"inputs":[],"name":"getMinDeposit","outputs":[{"name":"amount","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_token","type":"address"}],"name":"init","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"listingHash","type":"bytes"},{"name":"amount","type":"uint256"}],"name":"downvote","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"minDeposit","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"listingHash","type":"bytes"},{"name":"amount","type":"uint256"}],"name":"upvote","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"listingHash","type":"bytes"},{"name":"g","type":"uint256"}],"name":"removeListing","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"submissionsArray","outputs":[{"name":"","type":"bytes"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"Reigistry","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"hashSearched","type":"bytes"}],"name":"getListingData","outputs":[{"name":"data","type":"uint256[3]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"givenDataHash","type":"bytes"},{"name":"amount","type":"uint256"}],"name":"addSubmission","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[],"name":"calculateVotes","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"token","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getAllHashes","outputs":[{"name":"allListings","type":"bytes[]"}],"payable":false,"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"upvoter","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"_UpvoteCast","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"downvoter","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"_DownvoteCast","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingHash","type":"bytes"}],"name":"_SubmissionPassed","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingHash","type":"bytes"}],"name":"_SubmissionDenied","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingHash","type":"bytes"}],"name":"_ListingSubmitted","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingHash","type":"bytes"}],"name":"_ListingRemoved","type":"event"}];
-const contractAddress = `0x15f2c7c39214fd0320ef90c9c455fed64208cfaa`;
+const registryContractABI = [{"constant":false,"inputs":[{"name":"listingIndex","type":"uint256"},{"name":"amount","type":"uint256"}],"name":"downvote","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[],"name":"getMinDeposit","outputs":[{"name":"amount","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_token","type":"address"}],"name":"init","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"givenDataIndex","type":"uint256"},{"name":"amount","type":"uint256"}],"name":"addSubmission","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"givenDataIndex","type":"uint256"}],"name":"getTotalVotes","outputs":[{"name":"voteTotal","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"minDeposit","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"listingIndex","type":"uint256"}],"name":"removeListing","outputs":[{"name":"removed","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"listingIndex","type":"uint256"},{"name":"amount","type":"uint256"}],"name":"upvote","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"givenDataIndex","type":"uint256"}],"name":"getExpirationTime","outputs":[{"name":"expirationTime","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"submissionsArray","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"amount","type":"uint256"}],"name":"setMinDeposit","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"calculateVotes","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"token","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"upvoter","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"_UpvoteCast","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"downvoter","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"_DownvoteCast","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingIndex","type":"uint256"}],"name":"_SubmissionPassed","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingIndex","type":"uint256"}],"name":"_SubmissionDenied","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingIndex","type":"uint256"}],"name":"_ListingSubmitted","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingIndex","type":"uint256"}],"name":"_ListingRemoved","type":"event"}];
+const contractAddress = `0x7973ec0116884be37a3fc217aea08cd8dba139c5`;
 const schedule = require('node-schedule');
-let registryContractInstance, account, web3;
-var submissionLinks = [];
+let minDeposit, registryContractInstance, account, web3;
+var submissionLinks = ["http://www.slate.com/content/dam/slate/articles/news_and_politics/the_slate_quiz/authorPortraits/pronounce_doge4.jpg.CROP.promovar-mediumlarge.jpg"];
 
 function getSubmissions(){
             //JSON object for each entry
-            let tempJSONObject = {entry, 
-                expirationTime, 
-                totalTokens, 
+            let tempJSONObject = {entry : '', 
+                expirationTime : 604800, 
+                totalTokens : 0, 
                 upvote : function(amountField){
                     if(document.getElementById(amountField).value !== undefined){
                         registryContractInstance.upvote(this.entry, document.getElementById(amountField).value, function(error,transactionHash){
@@ -32,8 +32,11 @@ function getSubmissions(){
                         console.log("Please enter an amount before clicking this button.");
             }};
 
-            for(let i = 0 ; i < submissionLinks.length ; i++){
-                tempJSONObject.entry = submissionLinks[i];
+            let submissionsData = [];
+
+            for(let i = 1 ; i < submissionLinks.length ; i++){
+                if(submissionLinks[i] !== 0){
+                    tempJSONObject.entry = submissionLinks[i];
                 registryContractInstance.getExpirationTime(i, function(error, result){
                     if(!error){
                     tempJSONObject.expirationTime = result.c;
@@ -45,6 +48,7 @@ function getSubmissions(){
                     }
                 });
                 submissionsData.push(tempJSONObject);
+            }
             }
             for(let i = 0 ; i < submissionsData.length ; i++){
                 addElement('listingPanel', i, submissionsData[i]);
@@ -78,6 +82,47 @@ let timedCountdown = schedule.scheduleJob('0 0 * * *', function(){
     })
 });
 
+function removeListing(index){
+    registryContractInstance.removeListing(index, function(error,result){
+        if (!error){
+            submissionLinks[index] = 0;
+        } else
+            console.log(error);
+    });
+}
+
+function sendListing(){
+    let url = document.getElementById('urlField').value
+    submissionLinks.push(url);
+    let amount = document.getElementById('amountField').value
+    if(url !== undefined && amount >= minDeposit){
+        registryContractInstance.addSubmission(submissionLinks.length, amount, function(error, transactionHash){
+            if(error){
+                console.log(transactionHash);
+            }
+        });
+        let image = document.createElement('img');
+        image.className = "w3-image w3-center";
+        image.src = url;
+        document.getElementById('formy').appendChild(image);
+        document.getElementById('amountField').value = '';
+        document.getElementById('urlField').value = '';
+    }
+    else
+        console.log("Error: One of two fields not filled out or amount does not meet minimum.");
+}
+function getMinDeposit(){
+    registryContractInstance.getMinDeposit(account, function(error, result){
+        if (!error){
+            document.getElementById('minDeposit').value = 'Minimum Deposit: ' + result;
+            minDeposit = result;
+        } else{
+            console.log(error);
+            minDeposit = 50;
+        }
+    })
+}
+
 window.addEventListener('load', async () => {
     // Modern dapp browsers...
     if (window.ethereum) {
@@ -108,4 +153,5 @@ window.addEventListener('load', async () => {
     const registryContract = window.web3.eth.contract(registryContractABI);
     registryContractInstance = registryContract.at(contractAddress);
     getSubmissions();
+    minDeposit = getMinDeposit();
 });
