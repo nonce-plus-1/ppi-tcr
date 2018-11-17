@@ -61,7 +61,6 @@ contract Registry {
     }
     
     function addSubmission(uint givenDataIndex, uint amount) public payable {
-        //Validate that the submitter has met the minimum deposit and that they aren't submitting a previously used answer
         require(amount >= minDeposit);
         token.transferFrom(msg.sender, address(this), amount);
         
@@ -74,6 +73,7 @@ contract Registry {
         newSub.completed = false;
         newSub.expirationTime = now + 604800;
 
+        submissionsArray.push(givenDataIndex);
         submissionsMapping[givenDataIndex] = newSub;
         submissionsMapping[givenDataIndex].promoters.push(msg.sender);
         submissionsMapping[givenDataIndex].balances[msg.sender] = amount;
