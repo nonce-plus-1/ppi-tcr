@@ -1,6 +1,6 @@
 pragma solidity ^0.4.21;
 
-import "http://github.com/ConsenSys/Tokens/contracts/eip20/EIP20Interface.sol";
+import "./EIP20Interface.sol";
 
 contract Registry {
     event _UpvoteCast(address upvoter, uint amount);
@@ -13,7 +13,7 @@ contract Registry {
     struct Submission {
         address submitter; //Include submitter and initial token stake as first TokenStake
         uint submittedDataIndex;
-        uint expirationTime; //
+        uint expirationTime; 
         uint upvoteTotal;
         uint downvoteTotal;
         address[] promoters;
@@ -30,18 +30,10 @@ contract Registry {
     uint public minDeposit;
     
     //Constructor
-    function Registry() public {
+    constructor(address _tokenAddress) public {
         owner = msg.sender;
         minDeposit = 50;
-        init(0x5a3c9a1725aa82690ee0959c89abe96fd1b527ee);
-    }
-
-    /**
-    @dev Initializer. Can only be called once.
-    @param _token The address where the ERC20 token contract is deployed
-    */
-    function init(address _token) public {
-        token = EIP20Interface(_token);
+        token = EIP20Interface(_tokenAddress);
     }
     
     //Modifiers
