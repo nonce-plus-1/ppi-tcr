@@ -21,7 +21,8 @@ module.exports = {
       gasPrice: 10000000000,
     },
     ganache: {
-      provider: () => new HDWalletProvider(mnemonic, 'http://localhost:8545'),
+      host: 'localhost',
+      port: 8545,
       network_id: '*',
       gas: 6000000,
       gasPrice: 25000000000,

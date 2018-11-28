@@ -30,94 +30,40 @@
     </div>        
 </header>
 
-<section class="w3-card-4 w3-round-xlarge uploadSection w3-panel w3-white">
+<section id="formy" class="w3-card-4 w3-round-xlarge uploadSection w3-panel w3-white">
 
     <h2 class="w3-xxlarge w3-center">
         UPLOAD YOUR MEME:
     </h2>
 
     <p class="w3-container">
-        Rules are...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vulputate eu scelerisque felis imperdiet proin fermentum. 
+        Don't post any offensive or highly controversial images. Nothing NSFW. Doges are good, doges are welcome. yes. very much. very many doge. 
     </p>
 
     <p class="w3-justify w3-container">
-        Just make sure your meme is in JPEG, PNG or JPG format and is not over 9000 in size or awesomeness. Dictumst quisque sagittis purus sit amet volutpat consequat. Fermentum iaculis eu non diam phasellus vestibulum lorem sed. Pretium quam vulputate dignissim suspendisse in est ante in. Nam aliquam sem et tortor consequat id porta nibh venenatis.
+            Make sure your link is small enough, if it isn't there are websites like tinyurl.com that will make permanent tiny links to your images.
     </p>
-  
-<!--   
-    <div id="drop-area"> 
-        <form class="w3-center" method="post">
-            <label class="nameInputLabel">MEME TITLE: </label> 
-            <input class="w3-input w3-hover-light-gray w3-show-inline-block" type="text" style="width: 40%;">
-            <div class="uploadBorder" id="drop-area">
-                <p>DRAG AND DROP</p>
-                <p>OR</p>
 
-                <label class="browseButton w3-button w3-hover-lime w3-round-large" for="fileElem">BRO, BROWSE FILES</label>
+    <section id="urlInput">
+        <h1 id="imageURLDisplay">please enter your image URL.</h1>
+        <form>
+            <section id="tiny_spacer"></section>
+            <input id="urlField" type="text" placeholder="maximum 150 characters...">
 
-                <div>
-                    <P><label class="w3-button w3-light-gray w3-ripple w3-round-large" for="image_uploads">UPLOAD (PNG, JPG, ETC.)</label></P>
-                    <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png">
-                    </div>
-                    <div class="preview">
-                    <p class="w3-medium">No files currently selected for upload</p>
-                    </div>
-                    <div>
-                    <button class="browseButton w3-button w3-hover-lime w3-button w3-round-large">Submit</button>
-                </div>
-            </div>
-     
+            <section id="tiny_spacer"></section>
 
+            <input id="amountField" type="text" placeholder="# of tokens">
+
+            <span id=greentext> ( </span> <span id=minDeposit></span> <span id=greentext> minimum = 50) </span>
+
+            <section id="tiny_spacer"></section>
+
+            <button id="userSubmit" type="button" class="submitButton" onclick="sendListing()">submit</button>
         </form>
-    </div> -->
+        
+    </section>
 
-
-
-    <!-- <form method="post" enctype="multipart/form-data">
-        <div>
-        <label for="image_uploads">Choose images to upload (PNG, JPG)</label>
-        <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple>
-        </div>
-        <div class="preview">
-        <p>No files currently selected for upload</p>
-        </div>
-        <div>
-        <button>Submit</button>
-        </div>
-    </form> -->
-    
-
-    <div>
-       <div id="drop-area"> 
-        <form class="w3-center" method="post">
-            <!-- <label class="nameInputLabel">MEME TITLE: </label> 
-            <input class="w3-input w3-hover-light-gray w3-show-inline-block" type="text" style="width: 40%;"> -->
-            <div class="uploadBorder" id="drop-area">
-                <!-- <p>DRAG AND DROP</p> -->
-                <!-- <p>OR</p> -->
-                <div>
-                    <p>
-                        <label class="w3-button w3-light-gray w3-ripple w3-round-large" for="image_uploads">BROWSE FILES (PNG, JPG, ETC.)</label>
-                    </p>
-                     <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png">
-                </div>
-                    
-                <div>
-                    <button class="browseButton w3-button w3-hover-lime w3-button w3-round-large">Submit</button>
-                </div>
-            </div>
-
-            <div class="preview">
-                <p class="w3-medium">No files currently selected for upload</p>
-            </div>
-        </form>
-    </div>
-    
-
-
-
-
-
+    <section id="bigboy_spacer"></section>
 </section>
 
 
@@ -175,6 +121,6 @@
         </section>
 </footer>
     
-<script src="js/upload.js"></script>
+<script src="js/bundle.js"></script>
 </body>
 </html>

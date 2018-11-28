@@ -979,6 +979,7 @@ a {
 .w3-container,
 .w3-panel {
     padding: 0.01em 16px
+
 }
 
 .w3-panel {
@@ -990,6 +991,7 @@ a {
 .w3-codespan {
     font-family: Consolas, "courier new";
     font-size: 16px
+    
 }
 
 .w3-code {
@@ -998,6 +1000,7 @@ a {
     padding: 8px 12px;
     border-left: 4px solid #4CAF50;
     word-wrap: break-word
+    
 }
 
 .w3-codespan {
@@ -1006,6 +1009,7 @@ a {
     padding-left: 4px;
     padding-right: 4px;
     font-size: 110%
+    
 }
 
 .w3-card,
@@ -1204,6 +1208,7 @@ a {
 .w3-medium {
     font-size: 93.75% !important
 }
+
 
 .w3-large {
     font-size: 112.50% !important
@@ -1890,7 +1895,7 @@ body, html {
     background-color: #C9F308;
     text-shadow: 0 1px 6px #000000;
     box-shadow: 1px 2px 8px #162F14;
-    font-weight: 500;
+    font-weight: 1000;
     font-family: "Roboto Slab", serif;
 }
 
@@ -1900,7 +1905,7 @@ body, html {
     border: 2px solid  #C9F308 !important;
     text-shadow: 0 1px 3px rgb(119, 119, 119);
     box-shadow: 1px 2px 5px rgb(119, 119, 119);
-    font-weight: 500;
+    font-weight: 1000;
     font-family: "Roboto Slab", serif;
     border-radius: 8px;
     /* padding: .75vw 3vw; */
@@ -1953,8 +1958,7 @@ p{
 
 article{
     margin-top: .2em;
-    margin-left: auto;
-    margin-right: 10%;
+
 }
 
 .memeBits{
@@ -1964,8 +1968,9 @@ article{
 }
 
 .memePic img{
-    float: right;
-    margin-right: 7%;
+    float: left;
+    margin-right: 2%;
+    margin-left: 5%;
     max-width: 80%;
     height: auto;
 }
@@ -2057,10 +2062,272 @@ article{
     color:  rgba(20, 74, 46, 0.929) !important;
 }
 
+
+.listing
+{
+    float: center;
+    max-width: 100%;
+    height: auto;
+}
+
+.listing-img{
+    float: center;
+    margin-right: 3%;
+    max-width: 80%;
+    height: auto;
+    border-width: 8%;
+    border-color: white;
+}
+/* i found arrow looking things ▲ ▼ */
+.listing button
+{    
+    background-color: white;
+    border-width: 2px;
+    border-color: #144A2E;
+    color: #144A2E;
+
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;    
+
+}
+
+vote_button
+{
+    background-color: white;
+    border-width: 2px;
+    border-color: #144A2E;
+    color: #144A2E;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;  
+}
+
+.listing button:hover
+{    
+    background-color: #144A2E;
+    border-width: 2px;
+    border-color: white;
+    color: white;
+
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;    
+}
+
+
+
+
+
 /* ------Upload Section */
+
   #drop-area.highlight {
     background-color:  rgba(180, 179, 179, 0.84); 
   }
+  /* 
+shades of green colors: 
+HEX
+(light to dark)
+#90e37c
+#6ac255
+#4a9f35
+#338520
+#206310
+#144a2E
+
+color of base website 
+#144A2E
+*/
   
+#urlInput
+  {
+      background: #144A2E;
+      padding: 10px;
+      height: 220px;
+      font-family: 'Open Sans Condensed', sans-serif;  
+      display: center;
+}
+
+#bidInput
+{
+    background: #FFFFFF;
+    padding: 10px;
+    font-family: 'Open Sans Condensed', sans-serif;  
+}
+
+#imageURLDisplay
+{
+    text-align: center;
+    color: #4a9f35;
+    font-family: 'Open Sans Condensed', sans-serif;  
+}
+
+#imageURLDisplayextra
+{
+    text-align: left;
+    padding-left: 10%;
+    color: #4a9f35;
+    float: left;
+    font-family: 'Open Sans Condensed', sans-serif;  
+}
+
+#urlField
+{
+    text-align: justify;
+    padding-right: 30%;
+    width: 50%;
+    color: #0D4400;
+    margin:auto;
+    font-family: 'Open Sans Condensed', sans-serif;  
+    border: 2px solid green;
+    border-radius: 3px;
+}
+
+#urlInputField
+{
+    text-align: justify;
+    width: 40%;
+    color: #0D4400;
+    border: 2px green;
+    margin: auto;
+    display: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#amountField
+{
+
+    padding-right: 30%;
+    width: 100px;
+    color: #0D4400;
+    margin:auto;
+    font-family: 'Open Sans Condensed', sans-serif;  
+    border: 2px solid green;
+    border-radius: 3px;
+    display: center;
+}
+
+#amountField2
+{
+    text-align: left;
+    width: 25px;
+    color: #0D4400;
+    margin: auto;
+    font-family: 'Open Sans Condensed', sans-serif;  
+    border: 2px solid green;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+#amountField3
+{
+    text-align: left;
+    width: 25px;
+    color: #0D4400;
+    font-family: 'Open Sans Condensed', sans-serif;  
+    border: 2px solid green;
+    border-radius: 3px;
+}
+
+#urlInput form
+{
+    padding-right: 30%;
+    margin-top: -25px;
+    font-family: 'Open Sans Condensed', sans-serif;  
+}
+
+#urlInput input[type="text"]
+{
+    /* float: center; */
+    padding: 4px;
+    height: 25px;
+    /*width: 50%;*/
+    margin-left: 50%;
+    margin-right: 0%;
+    border: 1px solid #90e37c;
+    border-radius: 4px;
+    color: #1B8900;
+    font-family: 'Open Sans Condensed', sans-serif;  
+}
+
+.submitButton
+{
+    /*float: right;*/
+    height: 40px;
+    background: #338520;
+    border: 2px solid #90e37c;
+    border-radius: 8px;
+    margin-left: 50%;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.submitButton:hover
+{
+    height: 40px;
+    background: #FFFFFF;
+    border: 2px solid #59DC39;
+    border-radius: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #136100;
+}
+
+.meme_displayed
+{
+    width: 40%;
+    border: 10px;
+}
+
+#greentext
+{
+    color: #4a9f35;
+}
   
-  
+#spacer 
+{
+    height: 30px;
+}
+
+#bigger_spacer 
+{
+    height: 100px;
+}
+
+#bigboy_spacer
+{
+    height: 200px;
+}
+
+#biggboy_spacer
+{
+    height: 300px;
+}
+
+#biggerboy_spacer
+{
+    height: 400px;
+}
+
+#tiny_spacer
+{
+    height: 10px;
+}
+
+#tinyer_spacer
+{
+    height: 3px;
+}
