@@ -111,6 +111,7 @@ function sendListing(){
     else
         console.log("Error: One of two fields not filled out or amount does not meet minimum.");
 }
+
 function getMinDeposit(){
     registryContractInstance.getMinDeposit(account, function(error, result){
         if (!error){

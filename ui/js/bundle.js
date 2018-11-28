@@ -9308,7 +9308,7 @@ function remove (list, value, cmp) {
 
 },{}],24:[function(require,module,exports){
 const registryContractABI = [{"constant":false,"inputs":[{"name":"givenDataIndex","type":"uint256"},{"name":"amount","type":"uint256"}],"name":"addSubmission","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[],"name":"calculateVotes","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"listingIndex","type":"uint256"},{"name":"amount","type":"uint256"}],"name":"downvote","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":false,"inputs":[{"name":"_token","type":"address"}],"name":"init","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"listingIndex","type":"uint256"}],"name":"removeListing","outputs":[{"name":"removed","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"amount","type":"uint256"}],"name":"setMinDeposit","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"listingIndex","type":"uint256"},{"name":"amount","type":"uint256"}],"name":"upvote","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"upvoter","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"_UpvoteCast","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"downvoter","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"_DownvoteCast","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingIndex","type":"uint256"}],"name":"_SubmissionPassed","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingIndex","type":"uint256"}],"name":"_SubmissionDenied","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingIndex","type":"uint256"}],"name":"_ListingSubmitted","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"listingIndex","type":"uint256"}],"name":"_ListingRemoved","type":"event"},{"constant":true,"inputs":[{"name":"givenDataIndex","type":"uint256"}],"name":"getExpirationTime","outputs":[{"name":"expirationTime","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getMinDeposit","outputs":[{"name":"amount","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"givenDataIndex","type":"uint256"}],"name":"getTotalVotes","outputs":[{"name":"voteTotal","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"minDeposit","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"submissionsArray","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"token","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"}];
-const contractAddress = `0xa56a25c018fe7a90c4e35a86de5a7a259c7a1fb6`;
+const contractAddress = `0x6a6f056d8b23308162278153138497832f6de254`;
 const schedule = require('node-schedule');
 let minDeposit, registryContractInstance, account, web3;
 var submissionLinks = ["http://www.slate.com/content/dam/slate/articles/news_and_politics/the_slate_quiz/authorPortraits/pronounce_doge4.jpg.CROP.promovar-mediumlarge.jpg"];
@@ -9411,7 +9411,7 @@ window.sendListing = function(){
         document.getElementById('amountField').value = '';
         document.getElementById('urlField').value = '';
 
-        registryContractInstance.addSubmission(submissionLinks.length-1, amount, function(error, transactionHash){
+        registryContractInstance.addSubmission((submissionLinks.length-1), amount, function(error, transactionHash){
             if(error){
                 console.log(transactionHash);
                 console.log(error);
@@ -9424,7 +9424,6 @@ window.sendListing = function(){
 function getMinDeposit(){
     registryContractInstance.getMinDeposit(account, function(error, result){
         if (!error){
-            document.getElementById('minDeposit').value = 'Minimum Deposit: ' + result;
             minDeposit = result;
         } else{
             console.log(error);
